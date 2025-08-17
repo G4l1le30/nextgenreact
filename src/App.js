@@ -65,16 +65,30 @@ export default function App() {
       </nav>
 
       {/* About Us Section */}
-      <section id="about-us" className="text-center">
-        <div className="container">
-          <h2 className="section-title">About Us</h2>
-          <p className="section-subtitle">
-            Kami adalah perusahaan event organizer yang berpengalaman dalam
-            mengelola berbagai jenis acara mulai dari pernikahan, gathering
-            perusahaan, hingga acara komunitas.
-          </p>
-        </div>
-      </section>
+<section id="about-us" className="text-center" style={{ paddingBottom: "25px" }}>
+  <div className="container">
+    <h2 className="section-title">About Us</h2>
+    <p className="section-subtitle">
+      Kami adalah perusahaan event organizer yang berpengalaman dalam
+      mengelola berbagai jenis acara mulai dari pernikahan, gathering
+      perusahaan, hingga acara komunitas.
+    </p>
+
+    {/* Tambahkan logo di bawah About Us */}
+    <div className="my-4">
+      <img
+        src={`${process.env.PUBLIC_URL}/images/logo2.jpg`}
+        alt="NexGen Logo"
+        style={{
+          maxWidth: "200px",
+          borderRadius: "10px",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+        }}
+      />
+    </div>
+  </div>
+</section>
+
 
       {/* Our Sponsor Section */}
       <section id="our-sponsor" className="text-center my-5">
