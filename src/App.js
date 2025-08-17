@@ -1,12 +1,21 @@
-// App.js
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import ParallaxText from "./ParallaxText";
 
-import "./App.css"; // move your <style> into this file
+import "./App.css";
 
 export default function App() {
+  // 🔥 aktifkan AOS di sini
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // durasi animasi (ms)
+      once: false, // animasi berkali-kali
+    });
+  }, []);
+
   return (
     <>
       {/* Navbar */}
@@ -65,33 +74,32 @@ export default function App() {
       </nav>
 
       {/* About Us Section */}
-<section id="about-us" className="text-center" style={{ paddingBottom: "25px" }}>
-  <div className="container">
-    <h2 className="section-title">About Us</h2>
-    <p className="section-subtitle">
-      Kami adalah perusahaan event organizer yang berpengalaman dalam
-      mengelola berbagai jenis acara mulai dari pernikahan, gathering
-      perusahaan, hingga acara komunitas.
-    </p>
+      <section id="about-us" className="text-center" style={{ paddingBottom: "25px" }}>
+        <div className="container">
+          <h2 className="section-title" data-aos="fade-up">About Us</h2>
+          <p className="section-subtitle" data-aos="fade-up" data-aos-delay="200">
+            Kami adalah perusahaan event organizer yang berpengalaman dalam
+            mengelola berbagai jenis acara mulai dari pernikahan, gathering
+            perusahaan, hingga acara komunitas.
+          </p>
 
-    {/* Tambahkan logo di bawah About Us */}
-    <div className="my-4">
-      <img
-        src={`${process.env.PUBLIC_URL}/images/logo2.jpg`}
-        alt="NexGen Logo"
-        style={{
-          maxWidth: "200px",
-          borderRadius: "10px",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-        }}
-      />
-    </div>
-  </div>
-</section>
-
+          {/* Tambahkan logo di bawah About Us */}
+          <div className="my-4" data-aos="zoom-in" data-aos-delay="400">
+            <img
+              src={`${process.env.PUBLIC_URL}/images/logo2.jpg`}
+              alt="NexGen Logo"
+              style={{
+                maxWidth: "200px",
+                borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+              }}
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Our Sponsor Section */}
-      <section id="our-sponsor" className="text-center my-5">
+      <section id="our-sponsor" className="text-center my-5" data-aos="fade-up">
         <div className="container">
           <h2 className="section-title">Our Sponsor</h2>
           <p className="section-subtitle">
@@ -114,7 +122,7 @@ export default function App() {
       </section>
 
       {/* Our Activity Section */}
-      <section id="our-activity" className="bg-village">
+      <section id="our-activity" className="bg-village" data-aos="fade-up">
         <div className="container">
           <h2 className="section-title">Our Activity</h2>
           <p className="section-subtitle">
@@ -124,7 +132,7 @@ export default function App() {
 
           <div className="row g-4 activity-grid">
             {/* Example card */}
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-right">
               <div className="row g-3">
                 <div className="col-md-6">
                   <img
@@ -177,7 +185,7 @@ export default function App() {
             </div>
 
             {/* Another card */}
-            <div className="col-lg-6">
+            <div className="col-lg-6" data-aos="fade-left">
               <div className="activity-card">
                 <img
                   src={`${process.env.PUBLIC_URL}/images/kelinci1.jpg`}
@@ -202,7 +210,7 @@ export default function App() {
       </section>
 
       {/* Our Office Section */}
-      <section id="our-office" className="text-center">
+      <section id="our-office" className="text-center" data-aos="fade-up">
         <div className="container">
           <h2 className="section-title">Our Office</h2>
           <p className="section-subtitle">
@@ -235,4 +243,3 @@ export default function App() {
     </>
   );
 }
-{/*export default App*/ }
