@@ -87,7 +87,7 @@ export default function App() {
 
     <ParallaxText baseVelocity={-1.5}>
       <>
-        <img src="/images/moorlife.jpg" alt="Sponsor 1" height={60} />
+        <img src="images/moorlife.jpg" alt="Sponsor 1" height={60} />
         <img src="/images/wingsmiesedap.png" height={60} alt="Sponsor 2" />
         <img src="/images/topkopi.jpg" alt="Sponsor 3" height={60} />
         <img src="/images/lemonilo.png" alt="Sponsor 4" height={60} />
