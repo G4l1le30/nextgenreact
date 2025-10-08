@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ParallaxText from "./ParallaxText";
+import Marquee from "react-fast-marquee";
 
 import "./App.css";
 
@@ -99,27 +99,33 @@ export default function App() {
       </section>
 
       {/* Our Sponsor Section */}
-      <section id="our-sponsor" className="text-center my-5" data-aos="fade-up">
-        <div className="container">
-          <h2 className="section-title">Our Sponsor</h2>
-          <p className="section-subtitle">
-            Kami berterima kasih kepada para sponsor dan mitra kerja sama kami.
-          </p>
+<section id="our-sponsor" className="text-center my-5" data-aos="fade-up">
+  <div className="container">
+    <h2 className="section-title">Our Sponsor</h2>
+    <p className="section-subtitle">
+      Kami berterima kasih kepada para sponsor dan mitra kerja sama kami.
+    </p>
 
-          <ParallaxText baseVelocity={-1.5}>
-            <>
-              <img src={`${process.env.PUBLIC_URL}/images/moorlife.jpg`} alt="Sponsor 1" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/topkopi.jpg`} alt="Sponsor 3" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/lemonilo.png`} alt="Sponsor 4" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/kalbefarma.png`} alt="Sponsor 5" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/forisa.png`} alt="Sponsor 6" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/freshcare.png`} alt="Sponsor 7" height={60} />
-              <img src={`${process.env.PUBLIC_URL}/images/rabbani.png`} alt="Sponsor 8" height={60} />
-            </>
-          </ParallaxText>
-        </div>
-      </section>
+    <Marquee
+      gradient={false}   // biar tidak ada gradasi di tepi
+      speed={60}         // kecepatan scroll
+      pauseOnHover={true}
+      pauseOnClick={true}
+    >
+      <div className="d-flex align-items-center gap-5">
+        <img src={`/nextgenreact/images/moorlife.jpg`} alt="Sponsor 1" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/topkopi.jpg`} alt="Sponsor 3" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/lemonilo.png`} alt="Sponsor 4" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/kalbefarma.png`} alt="Sponsor 5" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/forisa.png`} alt="Sponsor 6" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/freshcare.png`} alt="Sponsor 7" height={60} />
+        <img src={`${process.env.PUBLIC_URL}/images/rabbani.png`} alt="Sponsor 8" height={60} />
+      </div>
+    </Marquee>
+  </div>
+</section>
+
 
       {/* Our Activity Section */}
       <section id="our-activity" className="bg-village" data-aos="fade-up">
