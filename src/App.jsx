@@ -23,7 +23,7 @@ export default function App() {
         <div className="container">
           <a className="navbar-brand d-flex align-items-center" href="/">
             <img
-              src={`${import.meta.env.BASE_URL}/images/logo3.jpg`}
+              src={`${import.meta.env.BASE_URL}images/logo3.jpg`}
               alt="Logo"
               style={{
                 width: "40px",
@@ -94,7 +94,7 @@ export default function App() {
             </div>
             <div className="col-md-4 text-center" data-aos="zoom-in" data-aos-delay="400">
               <img
-                src={`${import.meta.env.BASE_URL}/images/logo3.jpg`}
+                src={`${import.meta.env.BASE_URL}images/logo3.jpg`}
                 alt="NexGen Logo"
                 style={{
                   maxWidth: "200px",
@@ -122,14 +122,14 @@ export default function App() {
       pauseOnClick={true}
     >
       <div className="d-flex align-items-center gap-5">
-        <img src={`${import.meta.env.BASE_URL}/images/moorlife.jpg`} alt="Sponsor 1" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/topkopi.jpg`} alt="Sponsor 3" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/lemonilo.png`} alt="Sponsor 4" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/kalbefarma.png`} alt="Sponsor 5" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/forisa.png`} alt="Sponsor 6" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/freshcare.png`} alt="Sponsor 7" height={60} />
-        <img src={`${import.meta.env.BASE_URL}/images/rabbani.png`} alt="Sponsor 8" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/moorlife.jpg`} alt="Sponsor 1" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/topkopi.jpg`} alt="Sponsor 3" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/lemonilo.png`} alt="Sponsor 4" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/kalbefarma.png`} alt="Sponsor 5" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/forisa.png`} alt="Sponsor 6" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/freshcare.png`} alt="Sponsor 7" height={60} />
+        <img src={`${import.meta.env.BASE_URL}images/rabbani.png`} alt="Sponsor 8" height={60} />
       </div>
     </Marquee>
   </div>
@@ -151,14 +151,14 @@ export default function App() {
               <div className="row g-3">
                 <div className="col-md-6">
                   <img
-                    src={`${import.meta.env.BASE_URL}/images/kegiatan1.jpg`}
+                    src={`${import.meta.env.BASE_URL}images/kegiatan1.jpg`}
                     className="img-fluid rounded shadow"
                     alt="kegiatan bersama bpbd"
                   />
                 </div>
                 <div className="col-md-6">
                   <img
-                    src={`${import.meta.env.BASE_URL}/images/kegiatan2.jpg`}
+                    src={`${import.meta.env.BASE_URL}images/kegiatan2.jpg`}
                     className="img-fluid rounded shadow"
                     alt="kegiatan bersama bpbd 2"
                   />
@@ -203,7 +203,7 @@ export default function App() {
             <div className="col-lg-6" data-aos="fade-left">
               <div className="activity-card">
                 <img
-                  src={`${import.meta.env.BASE_URL}/images/kelinci1.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/kelinci1.jpg`}
                   className="card-img-top"
                   alt="Main sama kelinci"
                 />
