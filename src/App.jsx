@@ -23,7 +23,7 @@ export default function App() {
         <div className="container">
           <a className="navbar-brand d-flex align-items-center" href="/">
             <img
-              src={`${process.env.PUBLIC_URL}/images/logo3.jpg`}
+              src={`${import.meta.env.BASE_URL}/images/logo3.jpg`}
               alt="Logo"
               style={{
                 width: "40px",
@@ -74,26 +74,35 @@ export default function App() {
       </nav>
 
       {/* About Us Section */}
-      <section id="about-us" className="text-center" style={{ paddingBottom: "25px" }}>
+      <section id="about-us" style={{ paddingBottom: "25px" }}>
         <div className="container">
-          <h2 className="section-title" data-aos="fade-up">About Us</h2>
-          <p className="section-subtitle" data-aos="fade-up" data-aos-delay="200">
-            Kami adalah perusahaan event organizer yang berpengalaman dalam
-            mengelola berbagai jenis acara mulai dari pernikahan, gathering
-            perusahaan, hingga acara komunitas.
-          </p>
-
-          {/* Tambahkan logo di bawah About Us */}
-          <div className="my-4" data-aos="zoom-in" data-aos-delay="400">
-            <img
-              src={`${process.env.PUBLIC_URL}/images/logo2.jpg`}
-              alt="NexGen Logo"
-              style={{
-                maxWidth: "200px",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-              }}
-            />
+          <h2 className="section-title text-center" data-aos="fade-up">About Us</h2>
+          <div className="row align-items-center">
+            <div className="col-md-8">
+              <p className="section-subtitle text-start" data-aos="fade-up" data-aos-delay="200">
+                NexGen adalah program edukasi yang berkomitmen membangun generasi yang berkarakter, sehat, peduli lingkungan, dan siap menghadapi tantangan masa depan. Kami menghadirkan pembelajaran yang interaktif, inspiratif, dan berbasis pengalaman agar setiap peserta tidak hanya memahami materi, tetapi juga mampu menerapkannya dalam kehidupan sehari-hari.
+              </p>
+              <p className="section-subtitle text-start" data-aos="fade-up" data-aos-delay="200">
+                Program-program NexGen mencakup pendidikan lingkungan hidup, pengelolaan sampah dan ekonomi sirkular, urban farming, penguatan karakter, parenting, pencegahan perundungan (bullying), edukasi kesehatan, serta pencegahan penyalahgunaan NAPZA. Seluruh materi disampaikan dengan pendekatan yang sesuai dengan usia peserta dan kebutuhan sekolah maupun komunitas.
+              </p>
+              <p className="section-subtitle text-start" data-aos="fade-up" data-aos-delay="200">
+                Kami percaya bahwa perubahan dimulai dari pendidikan yang bermakna. Oleh karena itu, NexGen terus berkolaborasi dengan sekolah, pemerintah, perusahaan, dan komunitas untuk menciptakan lingkungan belajar yang aman, sehat, inklusif, dan berkelanjutan.
+              </p>
+              <p className="section-subtitle text-start" data-aos="fade-up" data-aos-delay="200">
+                NexGen hadir untuk menginspirasi, mendidik, dan memberdayakan setiap generasi agar tumbuh menjadi pribadi yang peduli, bertanggung jawab, dan mampu memberikan dampak positif bagi masyarakat.
+              </p>
+            </div>
+            <div className="col-md-4 text-center" data-aos="zoom-in" data-aos-delay="400">
+              <img
+                src={`${import.meta.env.BASE_URL}/images/logo3.jpg`}
+                alt="NexGen Logo"
+                style={{
+                  maxWidth: "200px",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -113,14 +122,14 @@ export default function App() {
       pauseOnClick={true}
     >
       <div className="d-flex align-items-center gap-5">
-        <img src={`/nextgenreact/images/moorlife.jpg`} alt="Sponsor 1" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/topkopi.jpg`} alt="Sponsor 3" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/lemonilo.png`} alt="Sponsor 4" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/kalbefarma.png`} alt="Sponsor 5" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/forisa.png`} alt="Sponsor 6" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/freshcare.png`} alt="Sponsor 7" height={60} />
-        <img src={`${process.env.PUBLIC_URL}/images/rabbani.png`} alt="Sponsor 8" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/moorlife.jpg`} alt="Sponsor 1" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/topkopi.jpg`} alt="Sponsor 3" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/wingsmiesedap.png`} alt="Sponsor 2" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/lemonilo.png`} alt="Sponsor 4" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/kalbefarma.png`} alt="Sponsor 5" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/forisa.png`} alt="Sponsor 6" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/freshcare.png`} alt="Sponsor 7" height={60} />
+        <img src={`${import.meta.env.BASE_URL}/images/rabbani.png`} alt="Sponsor 8" height={60} />
       </div>
     </Marquee>
   </div>
@@ -142,14 +151,14 @@ export default function App() {
               <div className="row g-3">
                 <div className="col-md-6">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/kegiatan1.jpg`}
+                    src={`${import.meta.env.BASE_URL}/images/kegiatan1.jpg`}
                     className="img-fluid rounded shadow"
                     alt="kegiatan bersama bpbd"
                   />
                 </div>
                 <div className="col-md-6">
                   <img
-                    src={`${process.env.PUBLIC_URL}/images/kegiatan2.jpg`}
+                    src={`${import.meta.env.BASE_URL}/images/kegiatan2.jpg`}
                     className="img-fluid rounded shadow"
                     alt="kegiatan bersama bpbd 2"
                   />
@@ -194,7 +203,7 @@ export default function App() {
             <div className="col-lg-6" data-aos="fade-left">
               <div className="activity-card">
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/kelinci1.jpg`}
+                  src={`${import.meta.env.BASE_URL}/images/kelinci1.jpg`}
                   className="card-img-top"
                   alt="Main sama kelinci"
                 />
