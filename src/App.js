@@ -21,7 +21,7 @@ export default function App() {
       {/* Navbar */}
       <nav className="navbar navbar-expand-lg navbar-dark">
         <div className="container">
-          <a className="navbar-brand d-flex align-items-center" href="#">
+          <a className="navbar-brand d-flex align-items-center" href="/">
             <img
               src={`${process.env.PUBLIC_URL}/images/logo3.jpg`}
               alt="Logo"
