@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/nextgenreact/',
+  base: process.env.VERCEL ? '/' : '/nextgenreact/',
   test: {
     globals: true,
     environment: 'jsdom',
