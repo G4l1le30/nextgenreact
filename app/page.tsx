@@ -1,9 +1,9 @@
-import { getActivitiesPage, getActivityCount, toItem } from "@/lib/sanity";
+import { getActivities, toItem } from "@/lib/sanity";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Sponsor from "@/components/Sponsor";
-import ActivityFeed from "@/components/ActivityFeed";
+import ActivityCarousel from "@/components/ActivityCarousel";
 import Office from "@/components/Office";
 import Footer from "@/components/Footer";
 
@@ -11,17 +11,10 @@ export const revalidate = 3600;
 
 export default async function Home() {
   let initial: ReturnType<typeof toItem>[] = [];
-  let total = 0;
   try {
-    const [raw, count] = await Promise.all([
-      getActivitiesPage(1),
-      getActivityCount(),
-    ]);
-    initial = raw.map(toItem);
-    total = count;
+    initial = (await getActivities()).map(toItem);
   } catch {
     initial = [];
-    total = 0;
   }
 
   return (
@@ -41,12 +34,12 @@ export default async function Home() {
                 Di sini, Anda dapat melihat berbagai kegiatan yang dilaksanakan
                 oleh NexGen
               </p>
-              {total === 0 ? (
+              {initial.length === 0 ? (
                 <p className="mt-8 text-center text-slate-500">
                   Belum ada kegiatan. Admin dapat menambahkan lewat studio.
                 </p>
               ) : (
-                <ActivityFeed initial={initial} total={total} />
+                <ActivityCarousel activities={initial} />
               )}
             </div>
           </div>

@@ -23,8 +23,8 @@ Next.js 15 (App Router) + TypeScript + Tailwind CSS landing page untuk NexGen, d
 ## Architecture
 - Entry: `app/page.tsx` (server component) -> Navbar, Hero, About, Sponsor, ActivityList, Office, Footer
 - `app/layout.tsx`: metadata + Inter via next/font
-- Section Our Activity fetch dari Sanity via `lib/sanity.ts`, ISR `revalidate = 3600`
-- Single page, no `?page=`: `ActivityFeed` (client) muat 6 kegiatan pertama (server) + tombol "Muat Lebih Kegiatan" (fetch lanjutan dari browser)
+- Section Our Activity fetch semua kegiatan dari Sanity via `lib/sanity.ts`, ISR `revalidate = 3600`
+- Tampilan: `ActivityCarousel` (horizontal, scroll + panah) - semua fetch server-side (browser tak pernah akses Sanity langsung, jadi bebas masalah CORS)
 - Layout kartu activity dihitung otomatis dari orientasi foto (1 foto portrait = sejajar, 1 landscape = atas-bawah, 2 foto = top row 50/50); crop admin di studio dihormati via `urlFor`
 - Studio Sanity: `sanity/` (schema `activity`), seed: `sanity/seed.mjs`
 - Animasi: framer-motion; marquee sponsor: CSS keyframes (`.marquee-track`)
