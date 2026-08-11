@@ -1,61 +1,28 @@
-import { urlFor, getActivitiesPage, getActivityCount, PER_PAGE } from "@/lib/sanity";
-import type { Activity } from "@/lib/sanity";
-import type { ActivityItem } from "@/components/ActivityList";
+import { getActivitiesPage, getActivityCount, toItem } from "@/lib/sanity";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Sponsor from "@/components/Sponsor";
-import ActivityList from "@/components/ActivityList";
-import Pagination from "@/components/Pagination";
+import ActivityFeed from "@/components/ActivityFeed";
 import Office from "@/components/Office";
 import Footer from "@/components/Footer";
 
 export const revalidate = 3600;
 
-function toItem(a: Activity): ActivityItem {
-  return {
-    _id: a._id,
-    title: a.title,
-    description: a.description,
-    tag: a.tag,
-    date: a.date,
-    images: (a.images ?? []).flatMap((img) =>
-      img.asset?._ref
-        ? [
-            {
-              url: urlFor(img).width(800).url(),
-              width: img.asset.w,
-              height: img.asset.h,
-            },
-          ]
-        : [],
-    ),
-  };
-}
-
-export default async function Home({
-  searchParams,
-}: {
-  searchParams: Promise<{ page?: string }>;
-}) {
-  const params = await searchParams;
-  const pageNum = Math.max(1, Number.parseInt(params.page ?? "1", 10) || 1);
-
-  let activities: ActivityItem[] = [];
+export default async function Home() {
+  let initial: ReturnType<typeof toItem>[] = [];
   let total = 0;
   try {
     const [raw, count] = await Promise.all([
-      getActivitiesPage(pageNum),
+      getActivitiesPage(1),
       getActivityCount(),
     ]);
-    activities = raw.map(toItem);
+    initial = raw.map(toItem);
     total = count;
   } catch {
-    activities = [];
+    initial = [];
     total = 0;
   }
-
-  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
 
   return (
     <>
@@ -74,15 +41,12 @@ export default async function Home({
                 Di sini, Anda dapat melihat berbagai kegiatan yang dilaksanakan
                 oleh NexGen
               </p>
-              {activities.length === 0 ? (
+              {total === 0 ? (
                 <p className="mt-8 text-center text-slate-500">
                   Belum ada kegiatan. Admin dapat menambahkan lewat studio.
                 </p>
               ) : (
-                <>
-                  <ActivityList activities={activities} />
-                  <Pagination current={pageNum} totalPages={totalPages} />
-                </>
+                <ActivityFeed initial={initial} total={total} />
               )}
             </div>
           </div>

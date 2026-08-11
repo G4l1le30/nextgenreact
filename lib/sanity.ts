@@ -1,6 +1,7 @@
 import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import type { ActivityItem } from "@/components/ActivityList";
 
 export const sanity = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -68,4 +69,25 @@ export async function getActivitiesPage(
     `${query} [$start...$end]`,
     { start, end },
   );
+}
+
+export function toItem(a: Activity): ActivityItem {
+  return {
+    _id: a._id,
+    title: a.title,
+    description: a.description,
+    tag: a.tag,
+    date: a.date,
+    images: (a.images ?? []).flatMap((img) =>
+      img.asset?._ref
+        ? [
+            {
+              url: urlFor(img).width(800).url(),
+              width: img.asset.w,
+              height: img.asset.h,
+            },
+          ]
+        : [],
+    ),
+  };
 }
