@@ -31,7 +31,7 @@ export default function Sponsor() {
                 alt={s.alt}
                 width={120}
                 height={60}
-                className="h-auto w-auto transition hover:scale-110"
+                className="h-[60px] w-auto transition hover:scale-110"
                 unoptimized
               />
             ))}
