@@ -25,52 +25,52 @@ function fadeUp(delay: number) {
 function DuoCard({ a }: { a: ActivityItem }) {
   const [img1, img2] = a.images ?? [];
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
-      {img1 ? (
-        <div className="relative min-h-48 md:col-span-3">
-          <Image
-            src={img1}
-            alt={a.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className="rounded-xl object-cover shadow-md"
-          />
-        </div>
-      ) : null}
-      {img2 ? (
-        <div className="relative min-h-48 md:col-span-3">
-          <Image
-            src={img2}
-            alt={a.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className="rounded-xl object-cover shadow-md"
-          />
-        </div>
-      ) : null}
-      <div className={img1 || img2 ? "md:col-span-6" : "md:col-span-12"}>
-        <div className="h-full rounded-2xl bg-white p-6 shadow-lg transition hover:-translate-y-2 hover:shadow-xl">
-          <h3 className="mb-4 text-xl font-bold text-teal-brand">
-            {a.title}
-          </h3>
-          <p className="text-sm leading-relaxed text-slate-600">
-            {a.description}
-          </p>
-          {(a.tag || a.date) && (
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              {a.date && (
-                <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
-                  {a.date}
-                </span>
-              )}
-              {a.tag && (
-                <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
-                  {a.tag}
-                </span>
-              )}
+    <div>
+      {(img1 || img2) && (
+        <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          {img1 ? (
+            <div className="relative aspect-video">
+              <Image
+                src={img1}
+                alt={a.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="rounded-xl object-cover shadow-md"
+              />
             </div>
-          )}
+          ) : null}
+          {img2 ? (
+            <div className="relative aspect-video">
+              <Image
+                src={img2}
+                alt={a.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="rounded-xl object-cover shadow-md"
+              />
+            </div>
+          ) : null}
         </div>
+      )}
+      <div className="rounded-2xl bg-white p-6 shadow-lg transition hover:-translate-y-2 hover:shadow-xl">
+        <h3 className="mb-4 text-xl font-bold text-teal-brand">{a.title}</h3>
+        <p className="text-sm leading-relaxed text-slate-600">
+          {a.description}
+        </p>
+        {(a.tag || a.date) && (
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            {a.date && (
+              <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
+                {a.date}
+              </span>
+            )}
+            {a.tag && (
+              <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
+                {a.tag}
+              </span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
