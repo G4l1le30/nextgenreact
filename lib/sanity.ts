@@ -38,6 +38,21 @@ const query = `*[_type == "activity" && published == true] | order(date desc) {
   images
 }`;
 
-export async function getActivities(): Promise<Activity[]> {
-  return sanity.fetch<Activity[]>(query);
+export const PER_PAGE = 6;
+
+export async function getActivityCount(): Promise<number> {
+  return sanity.fetch<number>(
+    `count(*[_type == "activity" && published == true])`,
+  );
+}
+
+export async function getActivitiesPage(
+  page: number,
+): Promise<Activity[]> {
+  const start = (page - 1) * PER_PAGE;
+  const end = start + PER_PAGE;
+  return sanity.fetch<Activity[]>(
+    `${query} [$start...$end]`,
+    { start, end },
+  );
 }

@@ -1,4 +1,4 @@
-import { urlFor, getActivities } from "@/lib/sanity";
+import { urlFor, getActivitiesPage, getActivityCount, PER_PAGE } from "@/lib/sanity";
 import type { Activity } from "@/lib/sanity";
 import type { ActivityItem } from "@/components/ActivityList";
 import Navbar from "@/components/Navbar";
@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Sponsor from "@/components/Sponsor";
 import ActivityList from "@/components/ActivityList";
+import Pagination from "@/components/Pagination";
 import Office from "@/components/Office";
 import Footer from "@/components/Footer";
 
@@ -25,14 +26,29 @@ function toItem(a: Activity): ActivityItem {
   };
 }
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const params = await searchParams;
+  const pageNum = Math.max(1, Number.parseInt(params.page ?? "1", 10) || 1);
+
   let activities: ActivityItem[] = [];
+  let total = 0;
   try {
-    const raw = await getActivities();
+    const [raw, count] = await Promise.all([
+      getActivitiesPage(pageNum),
+      getActivityCount(),
+    ]);
     activities = raw.map(toItem);
+    total = count;
   } catch {
     activities = [];
+    total = 0;
   }
+
+  const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
 
   return (
     <>
@@ -56,7 +72,10 @@ export default async function Home() {
                   Belum ada kegiatan. Admin dapat menambahkan lewat studio.
                 </p>
               ) : (
-                <ActivityList activities={activities} />
+                <>
+                  <ActivityList activities={activities} />
+                  <Pagination current={pageNum} totalPages={totalPages} />
+                </>
               )}
             </div>
           </div>
