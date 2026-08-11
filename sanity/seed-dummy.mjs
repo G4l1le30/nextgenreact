@@ -45,7 +45,6 @@ for (let i = 0; i < titles.length; i++) {
     description: `Ini adalah ${t.toLowerCase()} yang diadakan NexGen sebagai program edukasi lingkungan, karakter, dan kesehatan bagi sekolah serta komunitas.`,
     tag: "Dummy Data",
     date: `2025-0${(i % 9) + 1}-15`,
-    layout: i % 2 === 0 ? "single" : "duo",
     images: [],
     published: true,
   });

@@ -19,10 +19,17 @@ function toItem(a: Activity): ActivityItem {
     description: a.description,
     tag: a.tag,
     date: a.date,
-    layout: a.layout,
-    images: (a.images ?? [])
-      .map((img) => (img.asset?._ref ? urlFor(img).width(800).url() : null))
-      .filter((u): u is string => Boolean(u)),
+    images: (a.images ?? []).flatMap((img) =>
+      img.asset?._ref
+        ? [
+            {
+              url: urlFor(img).width(800).url(),
+              width: img.asset.w,
+              height: img.asset.h,
+            },
+          ]
+        : [],
+    ),
   };
 }
 

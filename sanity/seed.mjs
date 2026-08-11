@@ -35,14 +35,12 @@ const activities = [
     description:
       "NexGen bekerjasama dengan BPBD mengedukasi masyarakat tentang kesiapsiagaan menghadapi bencana melalui latihan dan simulasi yang interaktif.",
     tag: "Kegiatan Bersama BPBD",
-    layout: "duo",
     files: ["kegiatan1.jpg", "kegiatan2.jpg"],
   },
   {
     title: "Main sama kelinci",
     description: "NexGen Dalam Giat Mitigasi Satwa & Feeding",
     tag: "NexGen Dalam Giat Mitigasi Satwa & Feeding",
-    layout: "single",
     files: ["kelinci1.jpg"],
   },
 ];
@@ -64,7 +62,6 @@ for (const act of activities) {
     title: act.title,
     description: act.description,
     tag: act.tag,
-    layout: act.layout,
     images: assets,
     published: true,
   });

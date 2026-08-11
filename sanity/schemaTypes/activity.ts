@@ -29,22 +29,9 @@ export default defineType({
       type: "date",
     }),
     defineField({
-      name: "layout",
-      title: "Layout",
-      type: "string",
-      options: {
-        list: [
-          { title: "Dua foto + deskripsi", value: "duo" },
-          { title: "Satu foto", value: "single" },
-        ],
-        layout: "radio",
-      },
-      initialValue: "single",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: "images",
       title: "Images",
+      description: "Tampilan dihitung otomatis dari orientasi foto (klik Crop untuk atur potongan).",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
       validation: (Rule) => Rule.max(2),

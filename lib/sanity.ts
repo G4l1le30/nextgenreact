@@ -21,10 +21,15 @@ export interface Activity {
   description: string;
   tag?: string;
   date?: string;
-  layout: "duo" | "single";
   images?: {
     _key?: string;
-    asset?: { _ref: string } | null;
+    crop?: unknown;
+    hotspot?: unknown;
+    asset?: {
+      _ref?: string;
+      w?: number;
+      h?: number;
+    } | null;
   }[];
 }
 
@@ -34,8 +39,16 @@ const query = `*[_type == "activity" && published == true] | order(date desc) {
   description,
   tag,
   date,
-  layout,
-  images
+  images[] {
+    _key,
+    crop,
+    hotspot,
+    "asset": asset->{
+      "_ref": _id,
+      "w": metadata.dimensions.width,
+      "h": metadata.dimensions.height
+    }
+  }
 }`;
 
 export const PER_PAGE = 6;
