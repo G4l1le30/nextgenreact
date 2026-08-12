@@ -25,9 +25,12 @@ export default async function Home() {
         <Hero />
         <About />
         <Sponsor />
-        <section id="our-activity">
-          <div className="bg-gradient-to-br from-village-start to-village-end py-20">
-            <div className="mx-auto max-w-7xl px-4">
+        <section
+          id="our-activity"
+          className="bg-gradient-to-br from-village-start to-village-end"
+          style={{ padding: "80px 0" }}
+        >
+          <div className="mx-auto max-w-7xl px-4">
               <h2 className="mb-4 text-center text-3xl font-bold uppercase tracking-wide text-teal-brand md:text-4xl">
                 Our Activity
               </h2>
@@ -52,7 +55,6 @@ export default async function Home() {
                   </div>
                 </>
               )}
-            </div>
           </div>
         </section>
         <Office />

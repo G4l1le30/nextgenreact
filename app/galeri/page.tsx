@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { getActivitiesPage, getActivityCount, PER_PAGE, toItem } from "@/lib/sanity";
 import BackButton from "@/components/BackButton";
+import ActivityMasonry from "@/components/ActivityMasonry";
 import Pagination from "@/components/Pagination";
 
 export const revalidate = 3600;
@@ -50,71 +50,7 @@ export default async function Galeri({
           </p>
         ) : (
           <>
-            <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
-              {items.map((a) => {
-                const img = (a.images ?? []).find((i) => i.url);
-                return (
-                  <div
-                    key={a._id}
-                    className="mb-6 break-inside-avoid overflow-hidden rounded-2xl bg-white shadow-lg"
-                  >
-                    {img && (
-                      <div className="relative w-full">
-                        <Image
-                          src={img.url}
-                          alt={a.title}
-                          width={img.width ?? 400}
-                          height={img.height ?? 300}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="h-auto w-full"
-                        />
-                      </div>
-                    )}
-                    <details className="group">
-                      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-4">
-                        <p className="text-sm font-medium text-slate-700">
-                          {a.title}
-                        </p>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="20"
-                          height="20"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="shrink-0 text-teal-brand transition-transform group-open:rotate-180"
-                          aria-hidden="true"
-                        >
-                          <path d="m6 9 6 6 6-6" />
-                        </svg>
-                      </summary>
-                      <div className="px-4 pb-4">
-                        <p className="text-sm leading-relaxed text-slate-600">
-                          {a.description}
-                        </p>
-                        {(a.tag || a.date) && (
-                          <div className="mt-3 flex flex-wrap items-center gap-2">
-                            {a.date && (
-                              <span className="rounded-full bg-chip px-3 py-1 text-xs font-medium text-teal-brand">
-                                {a.date}
-                              </span>
-                            )}
-                            {a.tag && (
-                              <span className="rounded-full bg-chip px-3 py-1 text-xs font-medium text-teal-brand">
-                                {a.tag}
-                              </span>
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    </details>
-                  </div>
-                );
-              })}
-            </div>
+            <ActivityMasonry activities={items} />
             <Pagination current={pageNum} totalPages={totalPages} />
           </>
         )}
