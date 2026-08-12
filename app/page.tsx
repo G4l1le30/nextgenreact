@@ -8,7 +8,7 @@ import ActivityGrid from "@/components/ActivityGrid";
 import Office from "@/components/Office";
 import Footer from "@/components/Footer";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 
 export default async function Home() {
   let recent: ReturnType<typeof toItem>[] = [];
