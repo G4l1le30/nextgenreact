@@ -13,7 +13,7 @@ export const revalidate = 3600;
 export default async function Home() {
   let recent: ReturnType<typeof toItem>[] = [];
   try {
-    recent = (await getActivitiesPage(1, 5)).map(toItem);
+    recent = (await getActivitiesPage(1, 6)).map(toItem);
   } catch {
     recent = [];
   }

@@ -70,9 +70,47 @@ export default async function Galeri({
                         />
                       </div>
                     )}
-                    <p className="p-4 text-sm font-medium text-slate-700">
-                      {a.title}
-                    </p>
+                    <details className="group">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 p-4">
+                        <p className="text-sm font-medium text-slate-700">
+                          {a.title}
+                        </p>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="shrink-0 text-teal-brand transition-transform group-open:rotate-180"
+                          aria-hidden="true"
+                        >
+                          <path d="m6 9 6 6 6-6" />
+                        </svg>
+                      </summary>
+                      <div className="px-4 pb-4">
+                        <p className="text-sm leading-relaxed text-slate-600">
+                          {a.description}
+                        </p>
+                        {(a.tag || a.date) && (
+                          <div className="mt-3 flex flex-wrap items-center gap-2">
+                            {a.date && (
+                              <span className="rounded-full bg-chip px-3 py-1 text-xs font-medium text-teal-brand">
+                                {a.date}
+                              </span>
+                            )}
+                            {a.tag && (
+                              <span className="rounded-full bg-chip px-3 py-1 text-xs font-medium text-teal-brand">
+                                {a.tag}
+                              </span>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </details>
                   </div>
                 );
               })}
