@@ -1,7 +1,7 @@
 import { createClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import type { ActivityItem } from "@/components/ActivityCarousel";
+import type { ActivityItem } from "@/components/ActivityGrid";
 
 export const sanity = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -52,8 +52,21 @@ const query = `*[_type == "activity" && published == true] | order(date desc) {
   }
 }`;
 
-export async function getActivities(): Promise<Activity[]> {
-  return sanity.fetch<Activity[]>(query);
+export const PER_PAGE = 12;
+
+export async function getActivityCount(): Promise<number> {
+  return sanity.fetch<number>(
+    `count(*[_type == "activity" && published == true])`,
+  );
+}
+
+export async function getActivitiesPage(
+  page: number,
+  perPage: number = PER_PAGE,
+): Promise<Activity[]> {
+  const start = (page - 1) * perPage;
+  const end = start + perPage;
+  return sanity.fetch<Activity[]>(`${query} [$start...$end]`, { start, end });
 }
 
 export function toItem(a: Activity): ActivityItem {

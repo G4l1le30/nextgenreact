@@ -1,20 +1,21 @@
-import { getActivities, toItem } from "@/lib/sanity";
+import Link from "next/link";
+import { getActivitiesPage, toItem } from "@/lib/sanity";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Sponsor from "@/components/Sponsor";
-import ActivityCarousel from "@/components/ActivityCarousel";
+import ActivityGrid from "@/components/ActivityGrid";
 import Office from "@/components/Office";
 import Footer from "@/components/Footer";
 
 export const revalidate = 3600;
 
 export default async function Home() {
-  let initial: ReturnType<typeof toItem>[] = [];
+  let recent: ReturnType<typeof toItem>[] = [];
   try {
-    initial = (await getActivities()).map(toItem);
+    recent = (await getActivitiesPage(1, 5)).map(toItem);
   } catch {
-    initial = [];
+    recent = [];
   }
 
   return (
@@ -34,12 +35,22 @@ export default async function Home() {
                 Di sini, Anda dapat melihat berbagai kegiatan yang dilaksanakan
                 oleh NexGen
               </p>
-              {initial.length === 0 ? (
+              {recent.length === 0 ? (
                 <p className="mt-8 text-center text-slate-500">
                   Belum ada kegiatan. Admin dapat menambahkan lewat studio.
                 </p>
               ) : (
-                <ActivityCarousel activities={initial} />
+                <>
+                  <ActivityGrid activities={recent} />
+                  <div className="mt-10 flex justify-center">
+                    <Link
+                      href="/galeri"
+                      className="rounded-full bg-teal-brand px-8 py-3 font-semibold text-white shadow transition hover:bg-teal-700"
+                    >
+                      Lihat Semua Aktivitas
+                    </Link>
+                  </div>
+                </>
               )}
             </div>
           </div>
