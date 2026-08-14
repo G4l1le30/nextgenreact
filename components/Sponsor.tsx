@@ -14,15 +14,15 @@ const sponsors = [
 export default function Sponsor() {
   const doubled = [...sponsors, ...sponsors];
   return (
-    <section id="our-sponsor" className="text-center">
+    <section id="our-sponsor" className="text-center py-20 bg-dark-slate">
       <div className="mx-auto max-w-7xl px-4">
-        <h2 className="mb-4 text-3xl font-bold uppercase tracking-wide text-teal-brand md:text-4xl">
+        <h2 className="mb-4 text-3xl font-bold uppercase tracking-wide text-accent-lime md:text-4xl">
           Our Sponsor
         </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-slate-600">
+        <p className="mx-auto mb-12 max-w-2xl text-slate-300">
           Kami berterima kasih kepada para sponsor dan mitra kerja sama kami.
         </p>
-        <div className="overflow-hidden py-2">
+        <div className="overflow-hidden py-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 px-6">
           <div className="marquee-track items-center">
             {doubled.map((s, i) => (
               <Image
@@ -31,7 +31,7 @@ export default function Sponsor() {
                 alt={s.alt}
                 width={120}
                 height={60}
-                className="h-[60px] w-auto transition hover:scale-110"
+                className="h-[60px] w-auto transition hover:scale-110 filter brightness-100 invert-0"
                 unoptimized
               />
             ))}

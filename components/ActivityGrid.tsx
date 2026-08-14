@@ -38,12 +38,12 @@ function Card({ a }: { a: ActivityItem }) {
         {(a.tag || a.date) && (
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {a.date && (
-              <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
+              <span className="rounded-md bg-chip px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-brand">
                 {a.date}
               </span>
             )}
             {a.tag && (
-              <span className="rounded-full bg-chip px-3 py-1 text-sm font-medium text-teal-brand">
+              <span className="rounded-md bg-chip px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-brand">
                 {a.tag}
               </span>
             )}

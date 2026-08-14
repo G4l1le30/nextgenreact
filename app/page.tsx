@@ -31,15 +31,15 @@ export default async function Home() {
           style={{ padding: "80px 0" }}
         >
           <div className="mx-auto max-w-7xl px-4">
-              <h2 className="mb-4 text-center text-3xl font-bold uppercase tracking-wide text-teal-brand md:text-4xl">
+              <h2 className="mb-4 text-center text-3xl font-bold uppercase tracking-wide text-accent-lime md:text-4xl">
                 Our Activity
               </h2>
-              <p className="mx-auto mb-4 max-w-2xl text-center text-slate-600">
+              <p className="mx-auto mb-8 max-w-2xl text-center text-slate-300">
                 Di sini, Anda dapat melihat berbagai kegiatan yang dilaksanakan
                 oleh NexGen
               </p>
               {recent.length === 0 ? (
-                <p className="mt-8 text-center text-slate-500">
+                <p className="mt-8 text-center text-slate-400">
                   Belum ada kegiatan. Admin dapat menambahkan lewat studio.
                 </p>
               ) : (
@@ -48,7 +48,7 @@ export default async function Home() {
                   <div className="mt-10 flex justify-center">
                     <Link
                       href="/galeri"
-                      className="rounded-full bg-teal-brand px-8 py-3 font-semibold text-white shadow transition hover:bg-teal-700"
+                      className="rounded-full bg-accent-lime px-8 py-3 font-bold text-teal-brand shadow transition hover:bg-mid-green hover:text-white"
                     >
                       Lihat Semua Aktivitas
                     </Link>

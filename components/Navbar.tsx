@@ -51,7 +51,7 @@ export default function Navbar() {
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-white/90 transition hover:text-white"
+                  className="block text-white/90 transition hover:text-accent-lime"
                 >
                   {l.label}
                 </a>

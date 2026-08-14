@@ -40,12 +40,12 @@ export default async function Galeri({
     <main className="min-h-screen bg-gradient-to-br from-village-start to-village-end">
       <div className="mx-auto max-w-7xl px-4 py-10">
         <BackButton />
-        <h1 className="u-title mt-6 mb-10 text-center text-4xl font-bold uppercase tracking-wide text-teal-brand">
+        <h1 className="u-title mt-6 mb-10 text-center text-4xl font-bold uppercase tracking-wide text-accent-lime">
           Galeri
         </h1>
 
         {items.length === 0 ? (
-          <p className="mt-8 text-center text-slate-500">
+          <p className="mt-8 text-center text-slate-400">
             Belum ada kegiatan. Admin dapat menambahkan lewat studio.
           </p>
         ) : (
@@ -56,7 +56,7 @@ export default async function Galeri({
         )}
 
         <div className="mt-10 flex justify-center">
-          <Link href="/" className="text-teal-brand underline-offset-4 transition hover:underline">
+          <Link href="/" className="text-accent-lime underline-offset-4 transition hover:underline">
             Kembali ke Beranda
           </Link>
         </div>
