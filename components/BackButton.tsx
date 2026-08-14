@@ -8,7 +8,7 @@ export default function BackButton() {
     <button
       type="button"
       onClick={() => (window.history.length > 1 ? router.back() : router.push("/"))}
-      className="inline-flex items-center gap-2 text-teal-brand transition hover:text-teal-700"
+      className="inline-flex items-center gap-2 text-accent-lime transition hover:text-white"
     >
       <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-current">
         <span className="block h-0 w-0 border-y-[6px] border-r-[8px] border-y-transparent border-r-current" />

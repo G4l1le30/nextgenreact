@@ -14,18 +14,18 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-dark-slate sticky top-0 z-50 shadow">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
-        <a href="#top" className="flex items-center">
+    <nav className="bg-dark-slate/80 backdrop-blur-md sticky top-0 z-50 border-b border-white/5">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#top" className="flex items-center gap-2.5">
           <Image
             src="/images/logo3.jpg"
             alt="Logo"
             width={40}
             height={32}
-            className="mr-2.5 rounded-[5px] object-cover"
+            className="rounded-lg object-cover"
             unoptimized
           />
-          <span className="text-lg font-semibold text-white">NexGen</span>
+          <span className="text-lg font-bold text-white">NexGen</span>
         </a>
 
         <button
@@ -44,19 +44,28 @@ export default function Navbar() {
           )}
         </button>
 
-        <div className={`${open ? "block" : "hidden"} md:block`}>
-          <ul className="flex flex-col gap-2 md:flex-row md:items-center md:gap-6">
+        <div className={`${open ? "block absolute top-full left-0 right-0 bg-dark-slate/95 backdrop-blur-md border-b border-white/5 px-6 pb-6 pt-4" : "hidden"} md:relative md:block md:bg-transparent md:border-0 md:p-0`}>
+          <ul className="flex flex-col gap-4 md:flex-row md:items-center md:gap-8">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block text-white/90 transition hover:text-accent-lime"
+                  className="block text-sm font-medium text-white/70 transition hover:text-accent-lime"
                 >
                   {l.label}
                 </a>
               </li>
             ))}
+            <li>
+              <a
+                href="#our-activity"
+                onClick={() => setOpen(false)}
+                className="inline-block rounded-xl bg-accent-lime px-5 py-2 text-sm font-bold text-teal-brand transition hover:bg-mid-green hover:text-white"
+              >
+                Get started
+              </a>
+            </li>
           </ul>
         </div>
       </div>

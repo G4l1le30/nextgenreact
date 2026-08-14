@@ -22,7 +22,7 @@ export default function Sponsor() {
         <p className="mx-auto mb-12 max-w-2xl text-slate-300">
           Kami berterima kasih kepada para sponsor dan mitra kerja sama kami.
         </p>
-        <div className="overflow-hidden py-4 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/10 px-6">
+        <div className="overflow-hidden rounded-2xl bg-white px-6 py-5 shadow-xl">
           <div className="marquee-track items-center">
             {doubled.map((s, i) => (
               <Image
@@ -31,7 +31,7 @@ export default function Sponsor() {
                 alt={s.alt}
                 width={120}
                 height={60}
-                className="h-[60px] w-auto transition hover:scale-110 filter brightness-100 invert-0"
+                className="h-[50px] w-auto object-contain opacity-70 transition hover:opacity-100 hover:scale-110"
                 unoptimized
               />
             ))}

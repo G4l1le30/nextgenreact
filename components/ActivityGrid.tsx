@@ -18,7 +18,7 @@ export type ActivityItem = {
 function Card({ a }: { a: ActivityItem }) {
   const img = (a.images ?? []).find((i) => i.url);
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-xl">
+    <article className="flex flex-col overflow-hidden rounded-2xl border-t-4 border-accent-lime bg-white shadow-lg transition hover:-translate-y-2 hover:shadow-xl">
       {img && (
         <div className="relative aspect-video w-full">
           <Image

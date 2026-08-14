@@ -16,8 +16,8 @@ export default function Pagination({
 
   const base =
     "inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-medium transition";
-  const active = "bg-teal-brand text-white";
-  const idle = "bg-white text-teal-brand shadow hover:bg-chip";
+  const active = "bg-accent-lime text-teal-brand";
+  const idle = "bg-white/10 text-white shadow hover:bg-accent-lime hover:text-teal-brand";
 
   return (
     <nav className="mt-10 flex flex-wrap items-center justify-center gap-2">

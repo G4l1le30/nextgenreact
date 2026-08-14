@@ -28,7 +28,7 @@ export default async function Home() {
         <section
           id="our-activity"
           className="bg-gradient-to-br from-village-start to-village-end"
-          style={{ padding: "80px 0" }}
+          style={{ padding: "100px 0" }}
         >
           <div className="mx-auto max-w-7xl px-4">
               <h2 className="mb-4 text-center text-3xl font-bold uppercase tracking-wide text-accent-lime md:text-4xl">
