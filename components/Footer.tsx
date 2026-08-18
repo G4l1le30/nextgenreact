@@ -2,44 +2,53 @@ import Image from "next/image";
 
 const quickLinks = [
   { href: "#about-us", label: "About Us" },
-  { href: "#our-sponsor", label: "Our Sponsor" },
+  { href: "#collaboration-impact", label: "Kerja Sama & Dampak" },
   { href: "#our-activity", label: "Our Activity" },
+  { href: "#core-pillars", label: "Program Unggulan" },
   { href: "#our-office", label: "Our Office" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-teal-brand">
-      <div className="mx-auto max-w-7xl px-6 py-14">
-        <div className="grid gap-10 md:grid-cols-12">
+    <footer className="border-t border-slate-200 bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:py-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          {/* Brand & Mission */}
           <div className="md:col-span-5">
-            <div className="mb-4 flex items-center gap-2.5">
-              <Image
-                src="/images/logo3.jpg"
-                alt="Logo"
-                width={40}
-                height={32}
-                className="rounded-lg object-cover"
-                unoptimized
-              />
-              <span className="text-lg font-bold text-white">NexGen</span>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="overflow-hidden rounded-xl border border-brand-olive/20 shadow-sm">
+                <Image
+                  src="/images/logo3.jpg"
+                  alt="Logo NexGen"
+                  width={44}
+                  height={44}
+                  className="h-11 w-11 object-cover"
+                  unoptimized
+                />
+              </div>
+              <div>
+                <span className="text-xl font-black tracking-tight text-teal-brand">NexGen</span>
+                <span className="block text-[10px] font-bold uppercase tracking-widest text-mid-green">
+                  Indonesia
+                </span>
+              </div>
             </div>
-            <p className="max-w-sm text-sm leading-relaxed text-white/60">
-              Program edukasi yang membangun generasi berkarakter, sehat, dan
-              peduli lingkungan untuk sekolah serta komunitas.
+            <p className="max-w-sm text-sm leading-relaxed text-slate-600">
+              Membangun generasi muda yang berkarakter, sehat, dan peduli lingkungan melalui pengalaman belajar nyata dan aksi kolaboratif.
             </p>
           </div>
 
+          {/* Navigasi */}
           <div className="md:col-span-3">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-lime">
-              Menu
-            </h3>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand">
+              Menu Navigasi
+            </h4>
             <ul className="space-y-2.5">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm text-white/70 transition hover:text-accent-lime"
+                    className="text-sm font-medium text-slate-600 transition hover:text-teal-brand"
                   >
                     {l.label}
                   </a>
@@ -48,14 +57,16 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Kontak & Media Sosial */}
           <div className="md:col-span-4">
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-accent-lime">
-              Contact Us
-            </h3>
-            <p className="mb-1 text-sm text-white/70">info@nexgen1.com</p>
-            <p className="mb-6 text-sm text-white/70">+62 812 3456 7890</p>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand">
+              Kontak &amp; Informasi
+            </h4>
+            <p className="text-sm font-medium text-slate-700">info@nexgen1.com</p>
+            <p className="mt-1 text-sm font-medium text-slate-700">+62 812 3456 7890</p>
+            <p className="mt-2 text-xs text-slate-500">Jakarta &amp; Sekitarnya, Indonesia</p>
 
-            <div className="flex gap-3">
+            <div className="mt-6 flex gap-3">
               {[
                 {
                   label: "Instagram",
@@ -80,7 +91,7 @@ export default function Footer() {
                   key={s.label}
                   href="#"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/10 text-white/70 transition hover:bg-accent-lime hover:text-teal-brand"
+                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition hover:bg-accent-lime hover:text-teal-brand"
                 >
                   {s.icon}
                 </a>
@@ -89,10 +100,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 text-center">
-          <p className="text-sm text-white/50">
-            &copy; 2025 NexGen. All rights reserved.
-          </p>
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-6 text-xs text-slate-500 sm:flex-row">
+          <p>&copy; {new Date().getFullYear()} NexGen. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:underline">Syarat &amp; Ketentuan</a>
+            <a href="#" className="hover:underline">Kebijakan Privasi</a>
+          </div>
         </div>
       </div>
     </footer>
