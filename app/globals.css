@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-teal-brand: #394508;
   --color-teal-dark: #253006;
+  --color-teal-light: #F1FBF7;
   --color-brand-olive: #394508;
   --color-brand-dark: #253006;
   --color-brand-deep: #1b2304;
@@ -29,11 +32,18 @@ body {
   color: var(--color-text-main);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark body {
+  background-color: #0c1205;
+  color: #f1f5f9;
 }
 
 section {
   padding: 80px 0;
 }
+
 
 @keyframes marquee {
   from {

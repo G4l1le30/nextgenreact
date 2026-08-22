@@ -37,21 +37,21 @@ export default async function Home() {
         <section id="our-activity" className="py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-12 text-center">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-accent-lime/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-brand">
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-accent-lime/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
                 <span className="h-2 w-2 rounded-full bg-mid-green" />
                 Dokumentasi Kegiatan
               </div>
-              <h2 className="text-3xl font-extrabold tracking-tight text-teal-brand sm:text-4xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-teal-brand sm:text-4xl dark:text-white">
                 Our Activity
               </h2>
-              <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">
+              <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">
                 Dokumentasi ragam aktivitas, workshop, sosialisasi, dan aksi nyata yang dilaksanakan oleh NexGen bersama mitra.
               </p>
             </div>
 
             {recent.length === 0 ? (
-              <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center shadow-sm">
-                <p className="text-slate-500 text-sm">
+              <div className="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center shadow-sm dark:border-white/10 dark:bg-[#151f0a]">
+                <p className="text-slate-500 text-sm dark:text-slate-400">
                   Belum ada kegiatan. Admin dapat menambahkan kegiatan baru melalui Sanity Studio.
                 </p>
               </div>

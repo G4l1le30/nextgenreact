@@ -18,9 +18,9 @@ export type ActivityItem = {
 function Card({ a }: { a: ActivityItem }) {
   const img = (a.images ?? []).find((i) => i.url);
   return (
-    <article className="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-lg border border-slate-200/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-accent-lime">
+    <article className="group flex flex-col overflow-hidden rounded-3xl bg-white shadow-lg border border-slate-200/80 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:border-accent-lime dark:bg-[#151f0a] dark:border-white/10 dark:hover:border-accent-lime">
       {img && (
-        <div className="viewfinder-bracket relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
+        <div className="viewfinder-bracket relative aspect-[16/10] w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
           <Image
             src={img.url}
             alt={a.title}
@@ -36,21 +36,21 @@ function Card({ a }: { a: ActivityItem }) {
           {(a.tag || a.date) && (
             <div className="mb-3 flex flex-wrap items-center gap-2">
               {a.tag && (
-                <span className="rounded-md bg-accent-lime/60 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-teal-brand">
+                <span className="rounded-md bg-accent-lime/60 px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
                   {a.tag}
                 </span>
               )}
               {a.date && (
-                <span className="rounded-md bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600">
+                <span className="rounded-md bg-slate-100 px-2.5 py-0.5 text-[11px] font-semibold text-slate-600 dark:bg-white/10 dark:text-slate-300">
                   {a.date}
                 </span>
               )}
             </div>
           )}
-          <h3 className="mb-2 text-lg font-bold text-teal-brand line-clamp-2 group-hover:text-mid-green transition-colors">
+          <h3 className="mb-2 text-lg font-bold text-teal-brand line-clamp-2 group-hover:text-mid-green transition-colors dark:text-white dark:group-hover:text-accent-lime">
             {a.title}
           </h3>
-          <p className="line-clamp-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
+          <p className="line-clamp-3 text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-300">
             {a.description}
           </p>
         </div>
