@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CtaBanner() {
   return (
-    <section className="py-16 lg:py-20">
+    <section className="bg-gradient-to-r from-teal-dark via-teal-dark/75 to-teal-brand/70 py-16 lg:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative overflow-hidden rounded-3xl  shadow-2xl">
           {/* Background Image with Dark Olive Overlay */}

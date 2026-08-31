@@ -9,6 +9,7 @@ const sponsors = [
   { src: "/images/forisa.png", alt: "Forisa" },
   { src: "/images/freshcare.png", alt: "Freshcare" },
   { src: "/images/rabbani.png", alt: "Rabbani" },
+  { src: "/images/swarapeduli.jpeg", alt: "Swara Peduli" },
 ];
 
 export default function Sponsor() {
