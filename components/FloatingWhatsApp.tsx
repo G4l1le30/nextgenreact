@@ -1,7 +1,7 @@
 "use client";
 
 export default function FloatingWhatsApp() {
-  const phoneNumber = "6281234567890";
+  const phoneNumber = "6285883259710";
   const defaultMessage = encodeURIComponent(
     "Halo NexGen, saya tertarik untuk mengetahui lebih lanjut tentang program edukasi sekolah."
   );

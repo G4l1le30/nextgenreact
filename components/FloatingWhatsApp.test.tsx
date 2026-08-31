@@ -8,7 +8,7 @@ describe("FloatingWhatsApp", () => {
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute("target", "_blank");
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
-    expect(link.getAttribute("href")).toContain("https://wa.me/6281234567890");
+    expect(link.getAttribute("href")).toContain("https://wa.me/6285883259710");
   });
 
   test("renders tooltip text", () => {

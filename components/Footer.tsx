@@ -68,7 +68,7 @@ export default function Footer() {
               Jl. Raya Penggilingan Gang Al - Aziz, RT.10/RW.4, Penggilingan, Kec. Cakung, Kota Jakarta Timur, DKI Jakarta 13940
             </p>
             <p className="text-sm font-medium text-slate-700 dark:text-slate-200">info@nexgen1.com</p>
-            <p className="mt-0.5 text-sm font-medium text-slate-700 dark:text-slate-200">+62 812 3456 7890</p>
+            <p className="mt-0.5 text-sm font-medium text-slate-700 dark:text-slate-200">+62 858 8325 9710</p>
 
             <div className="mt-5 flex gap-3">
               {[

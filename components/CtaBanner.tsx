@@ -33,7 +33,7 @@ export default function CtaBanner() {
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="https://wa.me/6281234567890?text=Halo%20NexGen,%20saya%20tertarik%20untuk%20mengundang%20NexGen%20ke%20sekolah%20kami%20di%20Jabodetabek."
+                href="https://wa.me/6285883259710?text=Halo%20NexGen,%20saya%20tertarik%20untuk%20mengundang%20NexGen%20ke%20sekolah%20kami%20di%20Jabodetabek."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl bg-accent-lime px-7 py-3.5 text-sm font-bold text-teal-dark shadow-lg transition duration-300 hover:bg-mid-green hover:text-white"

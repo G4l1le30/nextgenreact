@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "NexGen - PT NEXT GENERATION INDONESIA",
   description: "Program Edukasi Interaktif Sekolah: Pengelolaan Sampah, Edukasi satwa, Kebencanaan BPBD, dan Parenting Se-Jabodetabek.",
+  icons: {
+    icon: "/images/logo3.jpg",
+    shortcut: "/images/logo3.jpg",
+    apple: "/images/logo3.jpg",
+  },
 };
 
 export default function RootLayout({
