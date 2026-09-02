@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-brand-olive/10 bg-white/85 backdrop-blur-md transition-all dark:border-white/10 dark:bg-[#0c1205]/85">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-3.5 sm:py-4">
         {/* Brand */}
         <a href="#top" className="flex items-center gap-3 group">
           <div className="overflow-hidden rounded-xl border border-brand-olive/20 shadow-sm transition-transform duration-300 group-hover:scale-105 dark:border-white/20">

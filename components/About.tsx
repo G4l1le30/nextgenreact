@@ -26,30 +26,30 @@ const values = [
 
 export default function About() {
   return (
-    <section id="about-us" className="py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="about-us" className="py-14 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Main Board Container */}
-        <div className="overflow-hidden rounded-3xl bg-white p-8 shadow-xl border border-slate-200/80 lg:p-14 dark:bg-[#151f0a] dark:border-white/10">
-          <div className="grid items-center gap-12 lg:grid-cols-12">
+        <div className="overflow-hidden rounded-3xl bg-white p-5 sm:p-8 lg:p-14 shadow-xl border border-slate-200/80 dark:bg-[#151f0a] dark:border-white/10">
+          <div className="grid items-center gap-8 lg:gap-12 lg:grid-cols-12">
             
             {/* Left Content Area */}
             <div className="lg:col-span-7">
               {/* Header Badge */}
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-accent-lime/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
+              <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full bg-accent-lime/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
                 <span className="h-2 w-2 rounded-full bg-mid-green" />
                 Tentang Kami
               </div>
 
               {/* Siapa Kami Headline */}
-              <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-teal-brand sm:text-4xl dark:text-white">
+              <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-teal-brand dark:text-white">
                 Siapa Kami?
               </h2>
 
               {/* Decorative Accent Line */}
-              <div className="mb-6 h-1.5 w-16 rounded-full bg-accent-lime" />
+              <div className="mb-5 sm:mb-6 h-1.5 w-16 rounded-full bg-accent-lime" />
 
               {/* Primary Narrative */}
-              <p className="mb-6 text-lg font-medium leading-relaxed text-slate-800 sm:text-xl dark:text-slate-100">
+              <p className="mb-5 sm:mb-6 text-base sm:text-lg lg:text-xl font-medium leading-relaxed text-slate-800 dark:text-slate-100">
                 NexGen adalah inisiatif edukasi anak muda yang hadir langsung ke sekolah-sekolah di seluruh wilayah{" "}
                 <span className="font-bold text-teal-brand underline decoration-accent-lime decoration-4 underline-offset-4 dark:text-accent-lime">
                   Jabodetabek
@@ -57,23 +57,23 @@ export default function About() {
                 . Berawal dari Jakarta pada tahun 2023, kami menghadirkan simulasi praktik nyata untuk membangun generasi yang tangguh, peduli lingkungan, dan berkarakter.
               </p>
 
-              <p className="mb-8 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+              <p className="mb-6 sm:mb-8 text-xs sm:text-sm lg:text-base leading-relaxed text-slate-600 dark:text-slate-300">
                 Kami mengintegrasikan 4 aspek fundamental dalam setiap kunjungan sekolah: pengelolaan sampah mandiri, edukasi satwa, kesiapsiagaan bencana berkolaborasi dengan BPBD, serta pendampingan parenting untuk menciptakan lingkungan belajar yang aman dan berdaya.
               </p>
 
               {/* 3 Core Value Pillars */}
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
                 {values.map((v) => (
                   <div
                     key={v.title}
-                    className="flex flex-col justify-between rounded-2xl border border-slate-100 bg-slate-50/80 p-4 transition duration-300 hover:border-accent-lime hover:bg-accent-lime/10 hover:shadow-sm dark:border-white/5 dark:bg-white/5 dark:hover:border-accent-lime/40 dark:hover:bg-white/10"
+                    className="flex flex-col justify-between rounded-2xl border border-slate-100 bg-slate-50/80 p-3.5 sm:p-4 transition duration-300 hover:border-accent-lime hover:bg-accent-lime/10 hover:shadow-sm dark:border-white/5 dark:bg-white/5 dark:hover:border-accent-lime/40 dark:hover:bg-white/10"
                   >
-                    <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-teal-brand text-accent-lime dark:bg-accent-lime dark:text-teal-dark">
+                    <div className="mb-2.5 sm:mb-3 flex h-9 w-9 items-center justify-center rounded-xl bg-teal-brand text-accent-lime dark:bg-accent-lime dark:text-teal-dark">
                       {v.icon}
                     </div>
                     <div>
-                      <h3 className="mb-1 text-sm font-bold text-teal-brand dark:text-accent-lime">{v.title}</h3>
-                      <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">{v.desc}</p>
+                      <h3 className="mb-1 text-xs sm:text-sm font-bold text-teal-brand dark:text-accent-lime">{v.title}</h3>
+                      <p className="text-[11px] sm:text-xs leading-relaxed text-slate-500 dark:text-slate-400">{v.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -82,8 +82,8 @@ export default function About() {
 
             {/* Right Graphic / Photo Area */}
             <div className="flex flex-col items-center justify-center lg:col-span-5">
-              <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border-4 border-accent-lime/40 bg-teal-dark p-8 text-center text-white shadow-2xl">
-                <div className="mx-auto mb-6 flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl bg-white p-3 shadow-lg">
+              <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border-4 border-accent-lime/40 bg-teal-dark p-5 sm:p-8 text-center text-white shadow-2xl">
+                <div className="mx-auto mb-4 sm:mb-6 flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center overflow-hidden rounded-2xl bg-white p-2.5 sm:p-3 shadow-lg">
                   <Image
                     src="/images/logo3.jpg"
                     alt="NexGen Logo"
@@ -94,24 +94,24 @@ export default function About() {
                   />
                 </div>
 
-                <h3 className="mb-1 text-xl font-black tracking-tight text-accent-lime sm:text-2xl">
+                <h3 className="mb-1 text-lg sm:text-xl font-black tracking-tight text-accent-lime">
                   PT NEXT GENERATION INDONESIA
                 </h3>
-                <span className="mb-3 inline-block rounded-full bg-accent-lime/20 px-3 py-0.5 text-xs font-bold text-accent-lime">
+                <span className="mb-2.5 sm:mb-3 inline-block rounded-full bg-accent-lime/20 px-3 py-0.5 text-xs font-bold text-accent-lime">
                   (NEXGEN)
                 </span>
-                <p className="mb-6 text-xs text-slate-300">
+                <p className="mb-5 sm:mb-6 text-xs text-slate-300">
                   Edukasi Sekolah, Mitigasi Kebencanaan BPBD &amp; Penguatan Karakter
                 </p>
 
-                <div className="grid grid-cols-2 gap-3 border-t border-white/10 pt-4 text-left">
-                  <div className="rounded-xl bg-white/5 p-3">
-                    <span className="block text-lg font-black text-accent-lime">2023</span>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-400">Awal di Jakarta</span>
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 border-t border-white/10 pt-4 text-left">
+                  <div className="rounded-xl bg-white/5 p-2.5 sm:p-3">
+                    <span className="block text-sm sm:text-base lg:text-lg font-black text-accent-lime leading-tight">2023</span>
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 block mt-0.5">Awal di Jakarta</span>
                   </div>
-                  <div className="rounded-xl bg-white/5 p-3">
-                    <span className="block text-lg font-black text-accent-lime">Jabodetabek</span>
-                    <span className="text-[10px] uppercase tracking-wider text-slate-400">Jangkauan Kini</span>
+                  <div className="rounded-xl bg-white/5 p-2.5 sm:p-3">
+                    <span className="block text-sm sm:text-base lg:text-lg font-black text-accent-lime leading-tight">Jabodetabek</span>
+                    <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 block mt-0.5">Jangkauan Kini</span>
                   </div>
                 </div>
               </div>

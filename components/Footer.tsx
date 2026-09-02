@@ -11,8 +11,8 @@ const quickLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white dark:bg-[#080d03] dark:border-white/10">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:py-16">
-        <div className="grid gap-12 md:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10 sm:py-14 lg:py-16">
+        <div className="grid gap-8 sm:gap-12 md:grid-cols-12">
           {/* Brand & Mission */}
           <div className="md:col-span-5">
             <div className="mb-4 flex items-center gap-3">
@@ -22,12 +22,12 @@ export default function Footer() {
                   alt="Logo PT NEXT GENERATION INDONESIA"
                   width={44}
                   height={44}
-                  className="h-11 w-11 object-cover"
+                  className="h-10 w-10 sm:h-11 sm:w-11 object-cover"
                   unoptimized
                 />
               </div>
               <div>
-                <span className="text-lg font-black tracking-tight text-teal-brand sm:text-xl dark:text-white">
+                <span className="text-base sm:text-lg lg:text-xl font-black tracking-tight text-teal-brand dark:text-white">
                   PT NEXT GENERATION INDONESIA
                 </span>
                 <span className="block text-[10px] font-bold uppercase tracking-widest text-mid-green dark:text-accent-lime">
@@ -35,22 +35,22 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="max-w-sm text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="max-w-sm text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               Inisiatif edukasi interaktif ke sekolah-sekolah Se-Jabodetabek berfokus pada pengelolaan sampah mandiri, edukasi satwa, kesiapsiagaan bencana bersama BPBD, dan parenting sejak 2023.
             </p>
           </div>
 
           {/* Navigasi */}
           <div className="md:col-span-3">
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand dark:text-accent-lime">
+            <h4 className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand dark:text-accent-lime">
               Menu Navigasi
             </h4>
-            <ul className="space-y-2.5">
+            <ul className="space-y-2 sm:space-y-2.5">
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm font-medium text-slate-600 transition hover:text-teal-brand dark:text-slate-400 dark:hover:text-accent-lime"
+                    className="text-xs sm:text-sm font-medium text-slate-600 transition hover:text-teal-brand dark:text-slate-400 dark:hover:text-accent-lime"
                   >
                     {l.label}
                   </a>
@@ -61,16 +61,16 @@ export default function Footer() {
 
           {/* Kontak & Alamat Kantor */}
           <div className="md:col-span-4">
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand dark:text-accent-lime">
+            <h4 className="mb-3 sm:mb-4 text-xs font-bold uppercase tracking-wider text-teal-brand dark:text-accent-lime">
               Kantor &amp; Kontak
             </h4>
-            <p className="text-xs leading-relaxed text-slate-600 mb-3 dark:text-slate-400">
+            <p className="text-xs leading-relaxed text-slate-600 mb-2.5 sm:mb-3 dark:text-slate-400">
               Jl. Raya Penggilingan Gang Al - Aziz, RT.10/RW.4, Penggilingan, Kec. Cakung, Kota Jakarta Timur, DKI Jakarta 13940
             </p>
-            <p className="text-sm font-medium text-slate-700 dark:text-slate-200">info@nexgen1.com</p>
-            <p className="mt-0.5 text-sm font-medium text-slate-700 dark:text-slate-200">+62 858 8325 9710</p>
+            <p className="text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">info@nexgen1.com</p>
+            <p className="mt-0.5 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200">+62 858 8325 9710</p>
 
-            <div className="mt-5 flex gap-3">
+            <div className="mt-4 sm:mt-5 flex gap-2.5 sm:gap-3">
               {[
                 {
                   label: "Instagram",
@@ -97,7 +97,7 @@ export default function Footer() {
                   key={s.label}
                   href="#"
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition hover:bg-accent-lime hover:text-teal-brand dark:bg-white/10 dark:text-slate-300 dark:hover:bg-accent-lime dark:hover:text-teal-dark"
+                  className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-700 transition hover:bg-accent-lime hover:text-teal-brand dark:bg-white/10 dark:text-slate-300 dark:hover:bg-accent-lime dark:hover:text-teal-dark"
                 >
                   {s.icon}
                 </a>
@@ -106,7 +106,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-6 text-xs text-slate-500 sm:flex-row dark:border-white/10 dark:text-slate-400">
+        <div className="mt-8 sm:mt-12 flex flex-col items-center justify-between gap-4 border-t border-slate-200/80 pt-6 text-[11px] sm:text-xs text-slate-500 sm:flex-row dark:border-white/10 dark:text-slate-400">
           <p>&copy; {new Date().getFullYear()} PT NEXT GENERATION INDONESIA (NEXGEN). All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:underline">Syarat &amp; Ketentuan</a>

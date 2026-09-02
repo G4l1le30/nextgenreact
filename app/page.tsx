@@ -34,17 +34,17 @@ export default async function Home() {
         <CollaborationImpact />
 
         {/* 4. Our Activity Section (Sanity CMS Showcase) */}
-        <section id="our-activity" className="py-20 lg:py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="mb-12 text-center">
+        <section id="our-activity" className="py-14 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-8 sm:mb-12 text-center">
               <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-accent-lime/40 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
                 <span className="h-2 w-2 rounded-full bg-mid-green" />
                 Dokumentasi Kegiatan
               </div>
-              <h2 className="text-3xl font-extrabold tracking-tight text-teal-brand sm:text-4xl dark:text-white">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-teal-brand dark:text-white">
                 Our Activity
               </h2>
-              <p className="mx-auto mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-400">
+              <p className="mx-auto mt-2 max-w-2xl text-xs sm:text-sm lg:text-base leading-relaxed text-slate-600 dark:text-slate-400">
                 Dokumentasi ragam aktivitas, workshop, sosialisasi, dan aksi nyata yang dilaksanakan oleh NexGen bersama mitra.
               </p>
             </div>
