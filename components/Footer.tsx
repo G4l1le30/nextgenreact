@@ -24,7 +24,6 @@ export default function Footer() {
                   width={44}
                   height={44}
                   className="h-10 w-10 sm:h-11 sm:w-11 object-cover"
-                  unoptimized
                 />
               </div>
               <div>

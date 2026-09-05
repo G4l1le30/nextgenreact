@@ -33,11 +33,11 @@ export default async function Galeri({
     const [raw, count, recentRaw] = await Promise.all([
       getActivitiesPage(pageNum, ITEMS_PER_PAGE, keyword),
       getActivityCount(keyword),
-      getActivitiesPage(1, 6),
+      pageNum === 1 && !keyword ? Promise.resolve([]) : getActivitiesPage(1, 6),
     ]);
     items = raw.map(toItem);
     total = count;
-    recentActivities = recentRaw.map(toItem);
+    recentActivities = recentRaw.length > 0 ? recentRaw.map(toItem) : items.slice(0, 6);
   } catch {
     items = [];
     total = 0;

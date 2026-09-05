@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useInView, animate } from "framer-motion";
 
 interface CounterProps {
@@ -22,28 +22,31 @@ export default function Counter({
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [value, setValue] = useState(from);
 
   useEffect(() => {
     if (!isInView) return;
+
+    const formatter = new Intl.NumberFormat("id-ID");
+    const node = ref.current;
+    if (!node) return;
 
     const controls = animate(from, to, {
       duration,
       ease: [0.16, 1, 0.3, 1], // Smooth deceleration curve
       onUpdate: (latest) => {
-        setValue(Math.floor(latest));
+        node.textContent = `${prefix}${formatter.format(Math.floor(latest))}${suffix}`;
       },
     });
 
     return () => controls.stop();
-  }, [isInView, from, to, duration]);
+  }, [isInView, from, to, duration, prefix, suffix]);
 
-  const formatted = new Intl.NumberFormat("id-ID").format(value);
+  const initial = new Intl.NumberFormat("id-ID").format(from);
 
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {formatted}
+      {initial}
       {suffix}
     </span>
   );

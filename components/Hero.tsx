@@ -26,11 +26,17 @@ const offerings = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden py-8 sm:py-12 lg:py-16">
+    <section
+      className="relative overflow-hidden pt-[20px] pb-[55px]"
+      style={{ paddingTop: "20px", paddingBottom: "55px" }}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid items-stretch gap-6 sm:gap-8 lg:grid-cols-12">
           {/* Left Column: Deep Olive Accent Panel */}
-          <div className="flex flex-col justify-between rounded-3xl bg-teal-dark p-5 sm:p-8 lg:p-12 text-white shadow-2xl lg:col-span-6">
+          <div
+            className="flex flex-col justify-between rounded-3xl bg-teal-dark px-5 sm:px-8 lg:px-12 py-6 text-white shadow-2xl lg:col-span-6"
+            style={{ paddingTop: "24px", paddingBottom: "24px" }}
+          >
             <div>
               <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-full border border-accent-lime/30 bg-white/5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-accent-lime">
                 <span className="h-2 w-2 rounded-full bg-accent-lime animate-pulse" />
@@ -99,9 +105,9 @@ export default function Hero() {
                 alt="Edukasi Lapangan Sekolah NexGen"
                 width={700}
                 height={520}
+                sizes="(max-width: 1024px) 100vw, 600px"
                 className="h-[280px] sm:h-[460px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 priority
-                unoptimized
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/10 pointer-events-none" />
 

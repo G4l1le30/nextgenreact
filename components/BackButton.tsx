@@ -1,30 +1,15 @@
-"use client";
-
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function BackButton({
-  href,
+  href = "/",
   label = "Kembali",
 }: {
   href?: string;
   label?: string;
 }) {
-  const router = useRouter();
-
-  const handleClick = () => {
-    if (href) {
-      router.push(href);
-    } else if (typeof window !== "undefined" && window.history.length > 1) {
-      router.back();
-    } else {
-      router.push("/");
-    }
-  };
-
   return (
-    <button
-      type="button"
-      onClick={handleClick}
+    <Link
+      href={href}
       className="group relative inline-flex items-center cursor-pointer border-0 bg-transparent p-0 transition-all duration-300"
     >
       <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-teal-brand text-accent-lime shadow-md transition-all duration-500 ease-[cubic-bezier(0.65,0,0.076,1)] group-hover:w-28 group-hover:bg-mid-green dark:bg-accent-lime dark:text-teal-dark dark:group-hover:bg-accent-lime/90">
@@ -48,6 +33,6 @@ export default function BackButton({
       <span className="ml-3 text-xs font-bold uppercase tracking-wider text-teal-brand transition-opacity duration-300 group-hover:opacity-0 dark:text-slate-300">
         {label}
       </span>
-    </button>
+    </Link>
   );
 }

@@ -11,8 +11,8 @@ export default function CtaBanner() {
               src="/images/kegiatan2.jpg"
               alt="Workshop Edukasi Sekolah NexGen"
               fill
-              className="object-cover filter blur-[1px]"
-              unoptimized
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-teal-dark via-teal-dark/90 to-teal-brand/80" />
           </div>

@@ -13,7 +13,6 @@ const sponsors = [
 ];
 
 export default function Sponsor() {
-  const doubled = [...sponsors, ...sponsors];
   return (
     <div>
       <div className="mb-6 text-center">
@@ -28,24 +27,44 @@ export default function Sponsor() {
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md p-4 sm:p-6 shadow-xl border border-white/15 dark:bg-white/5">
+      <div className="overflow-hidden rounded-3xl bg-white/[0.08] p-4 sm:p-6 shadow-xl border border-white/15 dark:bg-white/[0.04]">
         <div className="marquee-mask overflow-hidden">
           <div className="marquee-track items-center py-2">
-            {doubled.map((s, i) => (
-              <div
-                key={`${s.alt}-${i}`}
-                className="flex h-14 w-36 shrink-0 items-center justify-center rounded-xl bg-white/95 px-3 py-1 transition duration-300 hover:scale-105"
-              >
-                <Image
-                  src={s.src}
-                  alt={s.alt}
-                  width={140}
-                  height={55}
-                  className="max-h-11 w-auto object-contain grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                  unoptimized
-                />
-              </div>
-            ))}
+            {/* Group 1 */}
+            <div className="flex shrink-0 items-center gap-16 pr-16">
+              {sponsors.map((s) => (
+                <div
+                  key={s.alt}
+                  className="flex h-14 w-36 shrink-0 items-center justify-center rounded-xl bg-white/95 px-3 py-1 transition duration-300 hover:scale-105"
+                >
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    width={140}
+                    height={55}
+                    className="max-h-11 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Group 2 (Duplicate for Seamless Infinite Loop) */}
+            <div className="flex shrink-0 items-center gap-16 pr-16" aria-hidden="true">
+              {sponsors.map((s, i) => (
+                <div
+                  key={`${s.alt}-dup-${i}`}
+                  className="flex h-14 w-36 shrink-0 items-center justify-center rounded-xl bg-white/95 px-3 py-1 transition duration-300 hover:scale-105"
+                >
+                  <Image
+                    src={s.src}
+                    alt={s.alt}
+                    width={140}
+                    height={55}
+                    className="max-h-11 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -36,7 +36,7 @@ export interface Activity {
   }[];
 }
 
-const query = `*[_type == "activity" && published == true] | order(date desc) {
+const activityFields = `
   _id,
   title,
   "slug": slug.current,
@@ -54,7 +54,7 @@ const query = `*[_type == "activity" && published == true] | order(date desc) {
       "h": metadata.dimensions.height
     }
   }
-}`;
+`;
 
 export const PER_PAGE = 12;
 
@@ -77,33 +77,13 @@ export async function getActivitiesPage(
 ): Promise<Activity[]> {
   const start = (page - 1) * perPage;
   const end = start + perPage;
-  if (keyword) {
-    const searchQuery = `*[_type == "activity" && published == true && (title match $kw || description match $kw)] | order(date desc) {
-      _id,
-      title,
-      "slug": slug.current,
-      description,
-      content,
-      tag,
-      date,
-      images[] {
-        _key,
-        crop,
-        hotspot,
-        "asset": asset->{
-          "_ref": _id,
-          "w": metadata.dimensions.width,
-          "h": metadata.dimensions.height
-        }
-      }
-    }`;
-    return sanity.fetch<Activity[]>(`${searchQuery} [$start...$end]`, {
-      kw: `*${keyword}*`,
-      start,
-      end,
-    });
-  }
-  return sanity.fetch<Activity[]>(`${query} [$start...$end]`, { start, end });
+  const filter = keyword
+    ? `*[_type == "activity" && published == true && (title match $kw || description match $kw)]`
+    : `*[_type == "activity" && published == true]`;
+  return sanity.fetch<Activity[]>(
+    `${filter} | order(date desc) { ${activityFields} } [$start...$end]`,
+    keyword ? { kw: `*${keyword}*`, start, end } : { start, end },
+  );
 }
 
 export async function getAllActivitySlugs(): Promise<string[]> {
@@ -125,25 +105,7 @@ export async function getAllActivitySlugs(): Promise<string[]> {
 export async function getActivityBySlug(slug: string): Promise<ActivityItem | null> {
   try {
     const activity = await sanity.fetch<Activity | null>(
-      `*[_type == "activity" && published == true && (slug.current == $slug || _id == $slug)][0] {
-        _id,
-        title,
-        "slug": slug.current,
-        description,
-        content,
-        tag,
-        date,
-        images[] {
-          _key,
-          crop,
-          hotspot,
-          "asset": asset->{
-            "_ref": _id,
-            "w": metadata.dimensions.width,
-            "h": metadata.dimensions.height
-          }
-        }
-      }`,
+      `*[_type == "activity" && published == true && (slug.current == $slug || _id == $slug)][0] { ${activityFields} }`,
       { slug },
     );
     return activity ? toItem(activity) : null;
@@ -158,24 +120,7 @@ export async function getRelatedActivities(
 ): Promise<ActivityItem[]> {
   try {
     const activities = await sanity.fetch<Activity[]>(
-      `*[_type == "activity" && published == true && _id != $currentId] | order(date desc)[0...$limit] {
-        _id,
-        title,
-        "slug": slug.current,
-        description,
-        tag,
-        date,
-        images[] {
-          _key,
-          crop,
-          hotspot,
-          "asset": asset->{
-            "_ref": _id,
-            "w": metadata.dimensions.width,
-            "h": metadata.dimensions.height
-          }
-        }
-      }`,
+      `*[_type == "activity" && published == true && _id != $currentId] | order(date desc)[0...$limit] { ${activityFields} }`,
       { currentId, limit },
     );
     return activities.map(toItem);

@@ -35,7 +35,7 @@ export default function ImpactBento() {
         </div>
 
         {/* Bento Card 2: 100+ Sesi Kunjungan Sekolah */}
-        <div className="flex flex-col justify-between rounded-3xl bg-white/10 backdrop-blur-md p-5 sm:p-8 text-white shadow-xl border border-white/15 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl dark:bg-white/5">
+        <div className="flex flex-col justify-between rounded-3xl bg-white/[0.08] p-5 sm:p-8 text-white shadow-xl border border-white/15 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl dark:bg-white/[0.04]">
           <div>
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-accent-lime">Ekspansi Wilayah</span>
             
@@ -86,7 +86,7 @@ export default function ImpactBento() {
         </div>
 
         {/* Bento Card 3: Ecosystem Network Diagram */}
-        <div className="flex flex-col justify-between rounded-3xl bg-white/10 backdrop-blur-md p-5 sm:p-8 text-white shadow-xl border border-white/15 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl dark:bg-white/5">
+        <div className="flex flex-col justify-between rounded-3xl bg-white/[0.08] p-5 sm:p-8 text-white shadow-xl border border-white/15 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl dark:bg-white/[0.04]">
           <div>
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-accent-lime">Kolaborasi Lintas Sektor</span>
             
