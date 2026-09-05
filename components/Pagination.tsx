@@ -4,20 +4,29 @@ export default function Pagination({
   current,
   totalPages,
   basePath = "/galeri",
+  keyword,
 }: {
   current: number;
   totalPages: number;
   basePath?: string;
+  keyword?: string;
 }) {
   if (totalPages <= 1) return null;
 
-  const href = (p: number) =>
-    `${basePath}${p === 1 ? "" : `?page=${p}`}`;
+  const href = (p: number) => {
+    const params = new URLSearchParams();
+    if (p > 1) params.set("page", String(p));
+    if (keyword) params.set("keyword", keyword);
+    const qs = params.toString();
+    return `${basePath}${qs ? `?${qs}` : ""}`;
+  };
 
   const base =
-    "inline-flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-sm font-medium transition";
-  const active = "bg-accent-lime text-teal-brand";
-  const idle = "bg-white/10 text-white shadow hover:bg-accent-lime hover:text-teal-brand";
+    "inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-3 text-xs sm:text-sm font-semibold transition-all duration-200";
+  const active =
+    "bg-teal-brand text-accent-lime font-bold shadow-md dark:bg-accent-lime dark:text-teal-dark";
+  const idle =
+    "bg-white text-slate-700 border border-slate-200 shadow-sm hover:bg-slate-100 hover:text-teal-brand dark:bg-white/10 dark:text-slate-300 dark:border-white/10 dark:hover:bg-accent-lime dark:hover:text-teal-brand";
 
   return (
     <nav className="mt-10 flex flex-wrap items-center justify-center gap-2">

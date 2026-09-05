@@ -39,23 +39,38 @@ export default function ImpactBento() {
           <div>
             <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-accent-lime">Ekspansi Wilayah</span>
             
-            {/* Custom SVG Bar Chart */}
-            <div className="mt-3 sm:mt-4 flex items-end justify-between gap-2 h-20 sm:h-24 pt-2">
-              <div className="flex flex-col items-center gap-1.5 w-full">
-                <div className="w-full rounded-t-md bg-accent-lime/40 h-8 sm:h-10" />
-                <span className="text-[9px] sm:text-[10px] text-slate-300 font-semibold">2023 (JKT)</span>
+            {/* Custom Bar Chart with Solid Grounded Baseline */}
+            <div className="mt-3 sm:mt-4">
+              {/* Bars: Grounded to a single shared baseline */}
+              <div className="flex h-16 sm:h-20 items-end gap-2 sm:gap-2.5 border-b border-white/20 pb-0">
+                <div className="flex h-full flex-1 items-end">
+                  <div className="w-full rounded-t-md bg-accent-lime/40 h-[30%]" />
+                </div>
+                <div className="flex h-full flex-1 items-end">
+                  <div className="w-full rounded-t-md bg-accent-lime/70 h-[55%]" />
+                </div>
+                <div className="flex h-full flex-1 items-end">
+                  <div className="w-full rounded-t-md bg-mid-green h-[75%]" />
+                </div>
+                <div className="flex h-full flex-1 items-end">
+                  <div className="w-full rounded-t-md bg-accent-lime h-full" />
+                </div>
               </div>
-              <div className="flex flex-col items-center gap-1.5 w-full">
-                <div className="w-full rounded-t-md bg-accent-lime/70 h-12 sm:h-14" />
-                <span className="text-[9px] sm:text-[10px] text-slate-300 font-semibold">BODETABEK</span>
-              </div>
-              <div className="flex flex-col items-center gap-1.5 w-full">
-                <div className="w-full rounded-t-md bg-mid-green h-16 sm:h-18" />
-                <span className="text-[9px] sm:text-[10px] text-slate-300 font-semibold">Mitra BPBD</span>
-              </div>
-              <div className="flex flex-col items-center gap-1.5 w-full">
-                <div className="w-full rounded-t-md bg-accent-lime h-20 sm:h-22" />
-                <span className="text-[9px] sm:text-[10px] text-accent-lime font-bold">Kini</span>
+
+              {/* Labels: Positioned below the baseline */}
+              <div className="mt-2 grid grid-cols-4 gap-2 text-center">
+                <span className="block text-[9px] sm:text-[10px] font-semibold text-slate-300 leading-tight">
+                  2023 (JKT)
+                </span>
+                <span className="block text-[9px] sm:text-[10px] font-semibold text-slate-300 leading-tight">
+                  BODETABEK
+                </span>
+                <span className="block text-[9px] sm:text-[10px] font-semibold text-slate-300 leading-tight">
+                  Mitra BPBD
+                </span>
+                <span className="block text-[9px] sm:text-[10px] font-bold text-accent-lime leading-tight">
+                  Kini
+                </span>
               </div>
             </div>
           </div>

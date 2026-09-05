@@ -19,7 +19,9 @@ export function urlFor(source: SanityImageSource) {
 export interface Activity {
   _id: string;
   title: string;
+  slug?: { current: string } | string;
   description: string;
+  content?: string;
   tag?: string;
   date?: string;
   images?: {
@@ -37,7 +39,9 @@ export interface Activity {
 const query = `*[_type == "activity" && published == true] | order(date desc) {
   _id,
   title,
+  "slug": slug.current,
   description,
+  content,
   tag,
   date,
   images[] {
@@ -54,7 +58,13 @@ const query = `*[_type == "activity" && published == true] | order(date desc) {
 
 export const PER_PAGE = 12;
 
-export async function getActivityCount(): Promise<number> {
+export async function getActivityCount(keyword?: string): Promise<number> {
+  if (keyword) {
+    return sanity.fetch<number>(
+      `count(*[_type == "activity" && published == true && (title match $kw || description match $kw)])`,
+      { kw: `*${keyword}*` },
+    );
+  }
   return sanity.fetch<number>(
     `count(*[_type == "activity" && published == true])`,
   );
@@ -63,24 +73,132 @@ export async function getActivityCount(): Promise<number> {
 export async function getActivitiesPage(
   page: number,
   perPage: number = PER_PAGE,
+  keyword?: string,
 ): Promise<Activity[]> {
   const start = (page - 1) * perPage;
   const end = start + perPage;
+  if (keyword) {
+    const searchQuery = `*[_type == "activity" && published == true && (title match $kw || description match $kw)] | order(date desc) {
+      _id,
+      title,
+      "slug": slug.current,
+      description,
+      content,
+      tag,
+      date,
+      images[] {
+        _key,
+        crop,
+        hotspot,
+        "asset": asset->{
+          "_ref": _id,
+          "w": metadata.dimensions.width,
+          "h": metadata.dimensions.height
+        }
+      }
+    }`;
+    return sanity.fetch<Activity[]>(`${searchQuery} [$start...$end]`, {
+      kw: `*${keyword}*`,
+      start,
+      end,
+    });
+  }
   return sanity.fetch<Activity[]>(`${query} [$start...$end]`, { start, end });
 }
 
+export async function getAllActivitySlugs(): Promise<string[]> {
+  try {
+    const items = await sanity.fetch<{ slug?: string; _id: string }[]>(
+      `*[_type == "activity" && published == true] { "slug": slug.current, _id }`,
+    );
+    const set = new Set<string>();
+    items.forEach((it) => {
+      if (it.slug) set.add(it.slug);
+      if (it._id) set.add(it._id);
+    });
+    return Array.from(set);
+  } catch {
+    return [];
+  }
+}
+
+export async function getActivityBySlug(slug: string): Promise<ActivityItem | null> {
+  try {
+    const activity = await sanity.fetch<Activity | null>(
+      `*[_type == "activity" && published == true && (slug.current == $slug || _id == $slug)][0] {
+        _id,
+        title,
+        "slug": slug.current,
+        description,
+        content,
+        tag,
+        date,
+        images[] {
+          _key,
+          crop,
+          hotspot,
+          "asset": asset->{
+            "_ref": _id,
+            "w": metadata.dimensions.width,
+            "h": metadata.dimensions.height
+          }
+        }
+      }`,
+      { slug },
+    );
+    return activity ? toItem(activity) : null;
+  } catch {
+    return null;
+  }
+}
+
+export async function getRelatedActivities(
+  currentId: string,
+  limit: number = 3,
+): Promise<ActivityItem[]> {
+  try {
+    const activities = await sanity.fetch<Activity[]>(
+      `*[_type == "activity" && published == true && _id != $currentId] | order(date desc)[0...$limit] {
+        _id,
+        title,
+        "slug": slug.current,
+        description,
+        tag,
+        date,
+        images[] {
+          _key,
+          crop,
+          hotspot,
+          "asset": asset->{
+            "_ref": _id,
+            "w": metadata.dimensions.width,
+            "h": metadata.dimensions.height
+          }
+        }
+      }`,
+      { currentId, limit },
+    );
+    return activities.map(toItem);
+  } catch {
+    return [];
+  }
+}
+
 export function toItem(a: Activity): ActivityItem {
+  const slug = typeof a.slug === "string" ? a.slug : a.slug?.current;
   return {
     _id: a._id,
     title: a.title,
+    slug,
     description: a.description,
+    content: a.content,
     tag: a.tag,
     date: a.date,
     images: (a.images ?? []).flatMap((img) =>
       img.asset?._ref
         ? [
             {
-              url: urlFor(img).width(800).url(),
+              url: urlFor(img).width(1200).url(),
               width: img.asset.w,
               height: img.asset.h,
             },

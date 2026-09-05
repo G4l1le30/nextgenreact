@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const quickLinks = [
-  { href: "#about-us", label: "About Us" },
-  { href: "#collaboration-impact", label: "Kerja Sama & Dampak" },
-  { href: "#our-activity", label: "Our Activity" },
-  { href: "#core-pillars", label: "Program Unggulan" },
-  { href: "#our-office", label: "Our Office" },
+  { href: "/#about-us", label: "About Us" },
+  { href: "/#collaboration-impact", label: "Kerja Sama & Dampak" },
+  { href: "/#our-activity", label: "Our Activity" },
+  { href: "/#core-pillars", label: "Program Unggulan" },
+  { href: "/#our-office", label: "Our Office" },
 ];
 
 export default function Footer() {
@@ -15,8 +16,8 @@ export default function Footer() {
         <div className="grid gap-8 sm:gap-12 md:grid-cols-12">
           {/* Brand & Mission */}
           <div className="md:col-span-5">
-            <div className="mb-4 flex items-center gap-3">
-              <div className="overflow-hidden rounded-xl border border-brand-olive/20 shadow-sm dark:border-white/20">
+            <Link href="/" className="mb-4 inline-flex items-center gap-3 group">
+              <div className="overflow-hidden rounded-xl border border-brand-olive/20 shadow-sm transition-transform duration-300 group-hover:scale-105 dark:border-white/20">
                 <Image
                   src="/images/logo3.jpg"
                   alt="Logo PT NEXT GENERATION INDONESIA"
@@ -34,7 +35,7 @@ export default function Footer() {
                   (NEXGEN)
                 </span>
               </div>
-            </div>
+            </Link>
             <p className="max-w-sm text-xs sm:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
               Inisiatif edukasi interaktif ke sekolah-sekolah Se-Jabodetabek berfokus pada pengelolaan sampah mandiri, edukasi satwa, kesiapsiagaan bencana bersama BPBD, dan parenting sejak 2023.
             </p>
@@ -48,12 +49,12 @@ export default function Footer() {
             <ul className="space-y-2 sm:space-y-2.5">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
                     className="text-xs sm:text-sm font-medium text-slate-600 transition hover:text-teal-brand dark:text-slate-400 dark:hover:text-accent-lime"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
