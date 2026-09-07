@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const quickLinks = [
-  { href: "/#about-us", label: "About Us" },
+  { href: "/#about-us", label: "Tentang Kami" },
   { href: "/#collaboration-impact", label: "Kerja Sama & Dampak" },
-  { href: "/#our-activity", label: "Our Activity" },
+  { href: "/#our-activity", label: "Aktivitas Kami" },
   { href: "/#core-pillars", label: "Program Unggulan" },
-  { href: "/#our-office", label: "Our Office" },
+  { href: "/#our-office", label: "Kantor Kami" },
 ];
 
 export default function Footer() {

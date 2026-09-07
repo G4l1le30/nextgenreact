@@ -8,6 +8,6 @@ test("renders NexGen navbar brand", () => {
 
 test("renders nav links", () => {
   render(<Navbar />);
-  expect(screen.getAllByText("About Us").length).toBeGreaterThan(0);
-  expect(screen.getAllByText("Our Activity").length).toBeGreaterThan(0);
+  expect(screen.getAllByText("Tentang Kami").length).toBeGreaterThan(0);
+  expect(screen.getAllByText("Aktivitas Kami").length).toBeGreaterThan(0);
 });

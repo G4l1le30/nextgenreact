@@ -20,7 +20,7 @@ export default function Office() {
           <div className="flex flex-col justify-between rounded-3xl bg-white p-5 sm:p-8 shadow-xl border border-slate-200 lg:col-span-5 dark:bg-[#151f0a] dark:border-white/10">
             <div>
               <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 rounded-lg bg-teal-brand/10 px-3 py-1 text-xs font-bold text-teal-brand dark:bg-accent-lime/20 dark:text-accent-lime">
-                Legal Entity
+                Badan Hukum
               </div>
               <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-teal-brand dark:text-white">
                 PT NEXT GENERATION INDONESIA

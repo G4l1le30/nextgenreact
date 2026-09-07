@@ -6,11 +6,11 @@ import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
 const links = [
-  { href: "/#about-us", label: "About Us" },
+  { href: "/#about-us", label: "Tentang Kami" },
   { href: "/#collaboration-impact", label: "Kerja Sama & Dampak" },
-  { href: "/#our-activity", label: "Our Activity" },
+  { href: "/#our-activity", label: "Aktivitas Kami" },
   { href: "/#core-pillars", label: "Program" },
-  { href: "/#our-office", label: "Our Office" },
+  { href: "/#our-office", label: "Kantor Kami" },
 ];
 
 export default function Navbar() {
@@ -61,7 +61,7 @@ export default function Navbar() {
               href="/#collaboration-impact"
               className="inline-flex items-center justify-center rounded-xl bg-accent-lime px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-teal-brand shadow-sm transition hover:bg-mid-green hover:text-white"
             >
-              Get Started
+              Hubungi Kami
             </Link>
           </div>
         </div>
@@ -112,7 +112,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className="inline-flex w-full items-center justify-center rounded-xl bg-accent-lime px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-teal-brand shadow-sm transition hover:bg-mid-green hover:text-white"
               >
-                Get Started
+                Hubungi Kami
               </Link>
             </li>
           </ul>

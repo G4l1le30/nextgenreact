@@ -42,7 +42,7 @@ export default async function Home() {
                 Dokumentasi Kegiatan
               </div>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-teal-brand dark:text-white">
-                Our Activity
+                Aktivitas Kami
               </h2>
               <p className="mx-auto mt-2 max-w-2xl text-xs sm:text-sm lg:text-base leading-relaxed text-slate-600 dark:text-slate-400">
                 Dokumentasi ragam aktivitas, workshop, sosialisasi, dan aksi nyata yang dilaksanakan oleh NexGen bersama mitra.
