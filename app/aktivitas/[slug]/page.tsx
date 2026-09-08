@@ -72,15 +72,25 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const primaryImage = activity.images?.[0];
   const galleryImages = activity.images?.slice(1) ?? [];
 
-  // Paragraf artikel: ambil dari content jika ada, filter agar tidak menduplikasi description/lead
-  const rawParagraphs = (activity.content || "")
+  // Susun paragraf artikel: gunakan content jika ada, fallback ke description jika content kosong
+  const contentParagraphs = (activity.content || "")
     .split("\n\n")
     .map((p) => p.trim())
     .filter(Boolean);
 
-  const paragraphs = rawParagraphs.filter(
-    (p) => p.toLowerCase() !== activity.description?.trim().toLowerCase()
-  );
+  let paragraphs: string[] = [];
+  if (contentParagraphs.length > 0) {
+    const hasDescInContent = contentParagraphs.some(
+      (p) => p.toLowerCase() === activity.description?.trim().toLowerCase()
+    );
+    if (!hasDescInContent && activity.description) {
+      paragraphs = [activity.description.trim(), ...contentParagraphs];
+    } else {
+      paragraphs = contentParagraphs;
+    }
+  } else if (activity.description) {
+    paragraphs = [activity.description.trim()];
+  }
 
   const shareText = encodeURIComponent(
     `Baca dokumentasi kegiatan NexGen: "${activity.title}"`
@@ -171,13 +181,6 @@ export default async function ActivityDetailPage({ params }: PageProps) {
 
                 {/* Sidoarjo news-desc: Article Text & Justified Formatting */}
                 <div className="mt-6">
-                  {/* Lead Summary Callout */}
-                  {activity.description && (
-                    <div className="mb-6 rounded-xl border-l-4 border-accent-lime bg-accent-lime/15 p-4 sm:p-5 text-xs sm:text-sm font-medium leading-relaxed text-teal-brand dark:text-accent-lime">
-                      {activity.description}
-                    </div>
-                  )}
-
                   {/* Body Paragraphs */}
                   {paragraphs.length > 0 && (
                     <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200 text-justify">
