@@ -72,12 +72,15 @@ export default async function ActivityDetailPage({ params }: PageProps) {
   const primaryImage = activity.images?.[0];
   const galleryImages = activity.images?.slice(1) ?? [];
 
-  // Paragraf artikel: utamakan content, jika belum diisi gunakan description
-  const articleBody = activity.content || activity.description;
-  const paragraphs = articleBody
+  // Paragraf artikel: ambil dari content jika ada, filter agar tidak menduplikasi description/lead
+  const rawParagraphs = (activity.content || "")
     .split("\n\n")
     .map((p) => p.trim())
     .filter(Boolean);
+
+  const paragraphs = rawParagraphs.filter(
+    (p) => p.toLowerCase() !== activity.description?.trim().toLowerCase()
+  );
 
   const shareText = encodeURIComponent(
     `Baca dokumentasi kegiatan NexGen: "${activity.title}"`
@@ -169,16 +172,20 @@ export default async function ActivityDetailPage({ params }: PageProps) {
                 {/* Sidoarjo news-desc: Article Text & Justified Formatting */}
                 <div className="mt-6">
                   {/* Lead Summary Callout */}
-                  <div className="mb-6 rounded-xl border-l-4 border-accent-lime bg-accent-lime/15 p-4 sm:p-5 text-xs sm:text-sm font-medium leading-relaxed text-teal-brand dark:text-accent-lime">
-                    {activity.description}
-                  </div>
+                  {activity.description && (
+                    <div className="mb-6 rounded-xl border-l-4 border-accent-lime bg-accent-lime/15 p-4 sm:p-5 text-xs sm:text-sm font-medium leading-relaxed text-teal-brand dark:text-accent-lime">
+                      {activity.description}
+                    </div>
+                  )}
 
                   {/* Body Paragraphs */}
-                  <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200 text-justify">
-                    {paragraphs.map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
-                  </div>
+                  {paragraphs.length > 0 && (
+                    <div className="space-y-4 text-xs sm:text-sm leading-relaxed text-slate-700 dark:text-slate-200 text-justify">
+                      {paragraphs.map((p, i) => (
+                        <p key={i}>{p}</p>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Additional Photo Gallery Grid */}
                   {galleryImages.length > 0 && (
