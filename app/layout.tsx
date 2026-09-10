@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.nexgen.my.id"),
   title: "NexGen - PT NEXT GENERATION INDONESIA",
   description: "Program Edukasi Interaktif Sekolah: Pengelolaan Sampah, Edukasi satwa, Kebencanaan BPBD, dan Parenting Se-Jabodetabek.",
   icons: {
