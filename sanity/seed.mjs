@@ -32,6 +32,7 @@ const upload = async (file) => {
 const activities = [
   {
     title: "Giat Mitigasi Bencana",
+    slug: "giat-mitigasi-bencana",
     description:
       "NexGen bekerjasama dengan BPBD mengedukasi masyarakat tentang kesiapsiagaan menghadapi bencana melalui latihan dan simulasi yang interaktif.",
     tag: "Kegiatan Bersama BPBD",
@@ -39,6 +40,7 @@ const activities = [
   },
   {
     title: "Main sama kelinci",
+    slug: "main-sama-kelinci",
     description: "NexGen Dalam Giat Mitigasi Satwa & Feeding",
     tag: "NexGen Dalam Giat Mitigasi Satwa & Feeding",
     files: ["kelinci1.jpg"],
@@ -60,6 +62,7 @@ for (const act of activities) {
   const doc = await client.create({
     _type: "activity",
     title: act.title,
+    slug: { _type: "slug", current: act.slug },
     description: act.description,
     tag: act.tag,
     images: assets,
