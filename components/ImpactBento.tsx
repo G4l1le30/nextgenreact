@@ -16,8 +16,8 @@ export default function ImpactBento() {
         </p>
       </div>
 
-      {/* 4-Card Bento Grid */}
-      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {/* 3-Card Bento Grid */}
+      <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {/* Bento Card 1: 15.000+ Siswa & Guru */}
         <div className="flex flex-col justify-between rounded-3xl bg-accent-lime p-5 sm:p-8 text-teal-dark shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
           <div>
@@ -112,23 +112,6 @@ export default function ImpactBento() {
             </p>
           </div>
         </div>
-
-        {/* Bento Card 4: 98% Tingkat Kepuasan & Rekomendasi */}
-        <div className="flex flex-col justify-between rounded-3xl bg-accent-lime p-5 sm:p-8 text-teal-dark shadow-xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl">
-          <div>
-            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-teal-brand/80">Tingkat Rekomendasi</span>
-            <div className="mt-3 sm:mt-4 text-4xl sm:text-5xl font-black tracking-tight text-teal-dark">
-              <Counter to={98} suffix="%" duration={2.0} />
-            </div>
-          </div>
-          <div className="mt-6 sm:mt-8 border-t border-teal-dark/15 pt-3.5 sm:pt-4">
-            <h3 className="text-sm sm:text-base font-bold text-teal-dark">Kepuasan Pihak Sekolah</h3>
-            <p className="mt-1 text-[11px] sm:text-xs text-teal-brand/85">
-              Guru &amp; kepala sekolah menilai materi sangat aplikatif bagi murid.
-            </p>
-          </div>
-        </div>
-
       </div>
     </div>
   );
